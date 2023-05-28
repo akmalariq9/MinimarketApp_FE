@@ -1,0 +1,1 @@
+# MinimarketApp_FE
