@@ -6,7 +6,7 @@ import ManagerAllPurchase from '../../components/Manager/ManagerAllPurchase'
 const ManagerAllPurchasePage = () => {
   return (
     <div>
-        <ManagerDashboardHeader active={2} />
+        {/* <ManagerDashboardHeader active={2} /> */}
         <div className="flex justify-between w-full">
             <div className="w-[80px] 800px:w-[330px]">
               <ManagerDashboardSidebar active={2} />

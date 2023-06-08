@@ -22,24 +22,22 @@ export default function WorkerPurchase() {
       width: 150,
     },
     {
-      field: "createdAt",
-      headerName: "Transaction Date",
-      flex: 1,
-    },
-    {
       field: "nama",
       headerName: "Name",
-      flex: 1,
+      width: 600,
+      // flex: 1,
     },
     {
       field: "jumlah_stok",
       headerName: "Stock",
-      flex: 1,
+      width: 100,
+      // flex: 1,
     },
     {
       field: "jenis_barang_id",
       headerName: "Category",
-      flex: 1,
+      // flex: 1,
+      width: 100,
     },
     {
       field: "price",
@@ -67,10 +65,6 @@ export default function WorkerPurchase() {
 
   const rows = filteredData.map((item) => ({
     id: item.id,
-    createdAt:
-      item.createdAt.split("T")[0] +
-      " " +
-      item.createdAt.split("T")[1].split("Z")[0],
     nama: item.nama,
     jumlah_stok: item.jumlah_stok,
     jenis_barang_id: item.jenis_barang_id,
@@ -79,7 +73,7 @@ export default function WorkerPurchase() {
 
   return (
     <>
-      <div className="w-full mx-8 pt-1 mt-10 bg-white">
+      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10"> {/* Tambahkan margin bawah di sini */}
         <div className="font-Poppins font-bold text-[18px]">
           All Available Products.
         </div>{" "}

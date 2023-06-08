@@ -6,7 +6,7 @@ import ManagerAllProduct from '../../components/Manager/ManagerAllProduct'
 const ManagerAllProductPage = () => {
   return (
     <div>
-        <ManagerDashboardHeader active={3} />
+        {/* <ManagerDashboardHeader active={3} /> */}
         <div className="flex justify-between w-full">
             <div className="w-[80px] 800px:w-[330px]">
               <ManagerDashboardSidebar active={3} />

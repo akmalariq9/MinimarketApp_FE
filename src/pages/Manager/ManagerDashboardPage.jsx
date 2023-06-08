@@ -6,7 +6,7 @@ import ManagerDashboardHeader from '../../components/Layout/ManagerDashboardHead
 const DashboardPage = () => {
   return (
     <div>
-      < ManagerDashboardHeader />
+      {/* < ManagerDashboardHeader /> */}
       < ManagerDashboardSidebar />
     </div>
 

@@ -17,7 +17,8 @@ import ManagerDetailSalesPage from "./pages/Manager/ManagerDetailSalesPage.jsx";
 import ManagerDetailsPurchasePage from "./pages/Manager/ManagerDetailPurchasePage.jsx";
 import WorkerAddSalesTransaction from "./components/Worker/WorkerAddSalesTransaction.jsx";
 import WorkerAddPurchaseTransaction from "./components/Worker/WorkerAddPurchaseTransaction.jsx";
-import WorkerAddProduct from "./components/Worker/WorkerAddProduct.jsx";
+import WorkerAddSalesProduct from "./components/Worker/WorkerAddSalesProduct.jsx";
+import WorkerAddPurchaseProduct from "./components/Worker/WorkerAddPurchaseProduct.jsx";
 
 const App = () => {
   return (
@@ -145,10 +146,19 @@ const App = () => {
         />
 
         <Route
-          path="/add-product/:id"
+          path="/add-sales-product/:id"
           element={
             // <WorkerProtectedRoute>
-              <WorkerAddProduct/>
+            <WorkerAddSalesProduct />
+            // </WorkerProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/add-purchase-product/:id"
+          element={
+            // <WorkerProtectedRoute>
+            <WorkerAddPurchaseProduct />
             // </WorkerProtectedRoute>
           }
         />

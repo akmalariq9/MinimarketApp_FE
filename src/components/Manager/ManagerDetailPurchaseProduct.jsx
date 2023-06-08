@@ -1,24 +1,27 @@
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
-import { AiOutlineEye } from "react-icons/ai";
-import { BiPencil } from "react-icons/bi"; 
+import { AiFillDelete } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 const ManagerDetailPurchaseProduct = () => {
   const location = useLocation();
   const [barang_id, setBarangId] = useState([]);
   const [data_barang, setDataBarang] = useState([]);
   const [barangs, setDataBarangs] = useState([]);
-  const [transaksi, setTransaksi] = useState([
-    {
-      "barang_id": null,
-      "jumlah_barang": null,
-    
-    }
-  ]);
   const url = location.pathname.split("/")[2];
+  const auth = useSelector((state) => state.pegawai);
+  const role = auth.role;
+  
+  let linkUrl;
+  if (role === 1){
+    linkUrl = '/manager-all-sales';
+  } else if (role === 2){
+    linkUrl = '/dashboard-purchase-history';
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,12 +51,22 @@ const ManagerDetailPurchaseProduct = () => {
     fetchData();
   }, []);
 
-  console.log(data_barang, "data transaksi");
+  const handleDeleteItem = async (id) => {
+    try {
+      await axios.delete(
+        `http://localhost:8000/barang-transaksi-pembelian/${id}`
+      );
+      window.location.reload();
+      // fetchData(); // Refresh data after successful deletion
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const columns = [
     {
       field: "id",
-      headerName: "Product Id",
+      headerName: "Item Id on Transaction",
       flex: 1,
     },
     {
@@ -77,31 +90,26 @@ const ManagerDetailPurchaseProduct = () => {
       flex: 1,
     },
     {
-      field: "editProduct",
-      headerName: "Edit Product",
-      flex: 1,
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Link to={`/barang-transaksi-penjualan/${params.id}`}>
-            <Button
-              variant="contained"
-              size="small"
-              startIcon={<BiPencil/>}
-              style={{ marginLeft: "10px" }}
-            >
-              Edit
-            </Button>
-          </Link>
-        );
-      },
+      field: "delete",
+      headerName: "Delete Item",
+      width: 150,
+      renderCell: (params) => (
+        <IconButton
+          aria-label="delete"
+          color="error"
+          onClick={() => handleDeleteItem(params.row.id)}
+        >
+          <AiFillDelete />
+        </IconButton>
+      ),
     },
   ];
 
   const rows = [];
+
   data_barang.map((item, index) => {
     rows.push({
-      id: item.id,
+      id: barangs[index].id,
       itemName: item.nama,
       itemCount: barangs[index].jumlah_barang,
       price: item.harga,
@@ -116,26 +124,28 @@ const ManagerDetailPurchaseProduct = () => {
           <div className="font-Poppins font-bold text-[18px]">
             Purchase Transaction Details.
           </div>
-          <Link to={`/manager-all-purchase`}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className="font-Poppins font-bold text-[10px]"
-            >
-              Back
-            </Button>
-          </Link>
-          <Link to={`/add-product/${url}`}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className="font-Poppins font-bold text-[10px]"
-            >
-              Add Product
-            </Button>
-          </Link>
+          <div className="space-x-4">
+            <Link to={linkUrl}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className="font-Poppins font-bold text-[10px]"
+              >
+                Back
+              </Button>
+            </Link>
+            <Link to={`/add-purchase-product/${url}`}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className="font-Poppins font-bold text-[10px]"
+              >
+                Add Product
+              </Button>
+            </Link>
+          </div>
         </div>
         <DataGrid
           rows={rows}

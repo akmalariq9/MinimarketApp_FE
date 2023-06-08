@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-// import DeleteIco
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 const ManagerDetailSalesProduct = () => {
   const location = useLocation();
@@ -13,8 +13,15 @@ const ManagerDetailSalesProduct = () => {
   const [data_barang, setDataBarang] = useState([]);
   const [barangs, setDataBarangs] = useState([]);
   const url = location.pathname.split("/")[2];
-
-  // console.log(barangs)
+  const auth = useSelector((state) => state.pegawai);
+  const role = auth.role;
+  
+  let linkUrl;
+  if (role === 1){
+    linkUrl = '/manager-all-sales';
+  } else if (role === 2){
+    linkUrl = '/dashboard-sales-history';
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,12 +53,11 @@ const ManagerDetailSalesProduct = () => {
 
   const handleDeleteItem = async (id) => {
     try {
-      
       await axios.delete(
         `http://localhost:8000/barang-transaksi-penjualan/${id}`
-      )
+      );
       window.location.reload();
-      // fetchData(); // Refresh data setelah penghapusan berhasil
+      // fetchData(); // Refresh data after successful deletion
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +66,7 @@ const ManagerDetailSalesProduct = () => {
   const columns = [
     {
       field: "id",
-      headerName: "Item Id on Transction",
+      headerName: "Item Id on Transaction",
       flex: 1,
     },
     {
@@ -106,7 +112,7 @@ const ManagerDetailSalesProduct = () => {
       id: barangs[index].id,
       itemName: item.nama,
       itemCount: barangs[index].jumlah_barang,
-      price: item.harga,
+      price: "Rp" + item.harga,
       totalPrice: item.harga * barangs[index].jumlah_barang,
     });
   });
@@ -118,26 +124,28 @@ const ManagerDetailSalesProduct = () => {
           <div className="font-Poppins font-bold text-[18px]">
             Sales Transaction Details.
           </div>
-          <Link to={`/manager-all-sales`}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className="font-Poppins font-bold text-[10px]"
-            >
-              Back
-            </Button>
-          </Link>
-          <Link to={`/add-product/${url}`}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className="font-Poppins font-bold text-[10px]"
-            >
-              Add Product
-            </Button>
-          </Link>
+          <div className="space-x-4">
+            <Link to={linkUrl}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className="font-Poppins font-bold text-[10px]"
+              >
+                Back
+              </Button>
+            </Link>
+            <Link to={`/add-sales-product/${url}`}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className="font-Poppins font-bold text-[10px]"
+              >
+                Add Product
+              </Button>
+            </Link>
+          </div>
         </div>
         <DataGrid
           rows={rows}

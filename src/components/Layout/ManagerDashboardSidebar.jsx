@@ -16,18 +16,29 @@ const ManagerDashboardSidebar = ({ active }) => {
     dispatch(logoutPegawai(null));
   };
   return (
-    <div className="w-full h-[90vh] bg-white shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
+    <div className="w-full h-[90vh] bg-white shadow-sm  sticky top-0 left-0">
+      <div className="p-6">
+        <Link to="/">
+          <img
+            src="https://drive.google.com/uc?export=view&id=1lIopMW2r-7VIwEm8UZBM3zJw5iHhQiZT"
+            alt=""
+            width={185}
+            height={55}
+            // style={{alignSelf: 'center'}}
+            style={{marginLeft: 'auto', marginRight: 'auto'}} 
+          />
+        </Link>
+      </div>
       {/* single item */}
-      <div className="w-full flex items-center p-4">
+      <div className={`w-full flex items-center p-4 ${
+        active === 1 ? "bg-[#D6C6E1]" : "bg-white"}`}>
         <Link to="/manager-all-sales" className="w-full flex items-center">
           <FiShoppingBag
             size={30}
-            color={`${active === 1 ? "crimson" : "#555"}`}
+            color={`${active === 1 ? "#61398F" : "#687083"}`}
           />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 1 ? "text-[crimson]" : "text-[#555]"
-            }`}
+          <h5 className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 1 ? "text-[#61398F]" : "text-[#687083]"}`}
           >
             All Sales
           </h5>
@@ -36,9 +47,9 @@ const ManagerDashboardSidebar = ({ active }) => {
 
       <div className="w-full flex items-center p-4">
         <Link to="/manager-all-purchase" className="w-full flex items-center">
-          <LuShoppingCart 
-            size={30} 
-            color={`${active === 2 ? "crimson" : "#555"}`} 
+          <LuShoppingCart
+            size={30}
+            color={`${active === 2 ? "crimson" : "#555"}`}
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
@@ -52,10 +63,7 @@ const ManagerDashboardSidebar = ({ active }) => {
 
       <div className="w-full flex items-center p-4">
         <Link to="/manager-all-products" className="w-full flex items-center">
-          <FiPackage 
-            size={30}
-            color={`${active === 3 ? "crimson" : "#555"}`}
-          />
+          <FiPackage size={30} color={`${active === 3 ? "crimson" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 3 ? "text-[crimson]" : "text-[#555]"
@@ -115,9 +123,7 @@ const ManagerDashboardSidebar = ({ active }) => {
       </div> */}
 
       <button className="w-full flex items-center p-4" onClick={handleLogout}>
-        <BiLogOut 
-          size={30} 
-          color={active === 6 ? "crimson" : "#555"} />
+        <BiLogOut size={30} color={active === 6 ? "crimson" : "#555"} />
         <h5
           className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
             active === 6 ? "text-[crimson]" : "text-[#555]"

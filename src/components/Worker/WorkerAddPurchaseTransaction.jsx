@@ -57,7 +57,7 @@ const WorkerAddSalesTransaction = () => {
           <TextField
             fullWidth
             margin="normal"
-            label="supplier ID"
+            label="Supplier ID"
             variant="outlined"
             placeholder="supplier ID"
             value={transaksi.supplier_id}
@@ -71,7 +71,7 @@ const WorkerAddSalesTransaction = () => {
           <TextField
             fullWidth
             margin="normal"
-            label="Pegawai ID"
+            label="Employee ID"
             variant="outlined"
             placeholder="Pegawai ID"
             value={transaksi.pegawai_id}

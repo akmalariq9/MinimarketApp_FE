@@ -71,9 +71,9 @@ const WorkerAddSalesTransaction = () => {
           <TextField
             fullWidth
             margin="normal"
-            label="Pegawai ID"
+            label="Employee ID"
             variant="outlined"
-            placeholder="Pegawai ID"
+            placeholder="Employee ID"
             value={transaksi.pegawai_id}
             disabled
             onChange={(e) =>
