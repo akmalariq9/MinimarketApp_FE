@@ -52,27 +52,32 @@ export default function WorkerPurchase() {
     {
       field: "createdAt",
       headerName: "Transaction Date",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "supplierID",
       headerName: "Supplier ID",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "supplierName",
       headerName: "Supplier Name",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
-      flex: 1,
+      // flex: 1,
+      width: 200,
       sortable: false,
       renderCell: (params) => {
         return (

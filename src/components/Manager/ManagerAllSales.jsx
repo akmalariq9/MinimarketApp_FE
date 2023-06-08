@@ -61,26 +61,31 @@ const ManagerAllSales = () => {
     {
       field: "createdAt",
       headerName: "Transaction Date",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "worker",
       headerName: "Responsible Officer ID",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "member",
       headerName: "Member ID",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
+      width: 200,
       flex: 1,
       sortable: false,
       renderCell: (params) => {
@@ -119,7 +124,7 @@ const ManagerAllSales = () => {
 
   return (
     <>
-      <div className="w-full mx-8 pt-1 mt-10 bg-white">
+      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
         <div className="font-Poppins font-bold text-[18px]">
           All Sales History.
         </div>

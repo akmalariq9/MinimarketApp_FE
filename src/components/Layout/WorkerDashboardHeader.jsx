@@ -17,14 +17,14 @@ const DashboardHeader = () => {
         </Link>
       </div>
       <div className="flex items-center">
-          <Link to="/dashboard-sales-history" className="800px:block hidden">
+          <Link to="/sales-history" className="800px:block hidden">
             <FiShoppingBag
               color="#555"
               size={30}
               className="mx-5 cursor-pointer"
             />
           </Link>
-          <Link to="/dashboard-purchase-history" className="800px:block hidden">
+          <Link to="/purchase-history" className="800px:block hidden">
             <FiPackage color="#555" size={30} className="mx-5 cursor-pointer" />
           </Link>
           {/* <Link to={`/shop/${seller._id}`}>

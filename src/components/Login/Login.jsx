@@ -109,14 +109,14 @@ const Login = () => {
                   Remember me
                 </label>
               </div>
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <a
                   href=".forgot-password"
                   className="font-medium text-blue-600 hover:text-blue-500"
                 >
                   Forgot your password?
                 </a>
-              </div>
+              </div> */}
             </div>
             <div>
               <button
@@ -127,12 +127,12 @@ const Login = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            {/* <div className={`${styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
               <button onClick={handleLogout} className="text-blue-600 pl-2">
                 Sign Up
               </button>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

@@ -47,32 +47,37 @@ const WorkerSales = () => {
     {
       field: "id",
       headerName: "Transaction Id",
-      width: 100,
+      width: 150,
     },
     {
       field: "createdAt",
       headerName: "Transaction Date",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "memberName",
       headerName: "Member Name",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "memberPoin",
       headerName: "Member Point",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
-      flex: 1,
+      // flex: 1,
+      width: 200,
       sortable: false,
       renderCell: (params) => {
         return (

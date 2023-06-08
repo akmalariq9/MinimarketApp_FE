@@ -10,10 +10,10 @@ const LoginPage = () => {
   
   useEffect(() => {
     if (isAuthenticated === true && role === 2){
-      navigate("/dashboard");
+      navigate("/sales-history");
     }
     else if (isAuthenticated === true && role === 1){
-      navigate("/manager-dashboard");
+      navigate("/manager-all-sales");
     }
   // eslint-disable-next-line
   }, [isAuthenticated]);

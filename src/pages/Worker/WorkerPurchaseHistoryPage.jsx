@@ -6,7 +6,7 @@ import WorkerPurchase from '../../components/Worker/WorkerPurchase'
 const WorkerPurchaseHistory = () => {
   return (
     <div>
-        <DashboardHeader />
+        {/* <DashboardHeader /> */}
         <div className="flex justify-between w-full">
             <div className="w-[80px] 800px:w-[330px]">
               <WorkerDashboardSidebar active={2} />

@@ -20,7 +20,7 @@ const ManagerDetailSalesProduct = () => {
   if (role === 1){
     linkUrl = '/manager-all-sales';
   } else if (role === 2){
-    linkUrl = '/dashboard-sales-history';
+    linkUrl = '/sales-history';
   }
 
   useEffect(() => {
