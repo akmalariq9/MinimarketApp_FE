@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
+import { Select, MenuItem, FormControl, InputLabel, TextField } from "@mui/material";
 import axios from "axios";
 
 export default function WorkerPurchase() {
   const [data, setData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Categories"); // Atur nilai default ke "All Categories"
   const [filteredData, setFilteredData] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     axios.get("http://localhost:8000/barang").then((res) => {
@@ -14,6 +15,20 @@ export default function WorkerPurchase() {
       setFilteredData(res.data.data);
     });
   }, []);
+
+  useEffect(() => {
+    const filteredByCategory =
+      selectedCategory === "All Categories"
+        ? data
+        : data.filter((item) => item.jenis_barang_id === parseInt(selectedCategory));
+
+    const filteredBySearch = filteredByCategory.filter((item) =>
+      item.nama.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    setFilteredData(filteredBySearch);
+  }, [selectedCategory, searchValue, data]);
+
 
   const columns = [
     {
@@ -55,15 +70,11 @@ export default function WorkerPurchase() {
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
     setSelectedCategory(selectedCategory);
+  };
 
-    if (selectedCategory === "All Categories") {
-      setFilteredData(data);
-    } else {
-      const filteredData = data.filter(
-        (item) => item.jenis_barang_id === parseInt(selectedCategory)
-      );
-      setFilteredData(filteredData);
-    }
+  const handleSearchChange = (event) => {
+    const searchValue = event.target.value;
+    setSearchValue(searchValue);
   };
 
   const rows = filteredData.map((item) => ({
@@ -76,27 +87,40 @@ export default function WorkerPurchase() {
 
   return (
     <>
-      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10"> {/* Tambahkan margin bawah di sini */}
+      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
         <div className="font-Poppins font-bold text-[18px]">
           All Available Products.
         </div>
         <br />
-        <FormControl variant="outlined" sx={{ minWidth: 200, marginBottom: "16px" }}>
-          <InputLabel id="category-label">Category</InputLabel>
-          <Select
-            labelId="category-label"
-            id="category"
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-            label="Category"
+        <div className="flex">
+          <FormControl
+            variant="outlined"
+            sx={{ minWidth: 200, marginBottom: "16px" }}
           >
-            {categories.map((category) => (
-              <MenuItem key={category} value={category}>
-                {category}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+            <InputLabel id="category-label">Category</InputLabel>
+            <Select
+              labelId="category-label"
+              id="category"
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+              label="Category"
+            >
+              {categories.map((category) => (
+                <MenuItem key={category} value={category}>
+                  {category}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Search"
+            variant="outlined"
+            size="small"
+            value={searchValue}
+            onChange={handleSearchChange}
+            sx={{ marginLeft: "16px" }}
+          />
+        </div>
         <DataGrid
           rows={rows}
           columns={columns}
