@@ -130,18 +130,18 @@ const App = () => {
         <Route
           path="/create-sales-transaction/"
           element={
-            <WorkerProtectedRoute>
+            // <WorkerProtectedRoute>
               <WorkerAddSalesTransaction />
-            </WorkerProtectedRoute>
+            // </WorkerProtectedRoute>
           }
         />
 
         <Route
           path="/create-purchase-transaction/"
           element={
-            <WorkerProtectedRoute>
+            // <WorkerProtectedRoute>
               <WorkerAddPurchaseTransaction />
-            </WorkerProtectedRoute>
+            // </WorkerProtectedRoute>
           }
         />
 

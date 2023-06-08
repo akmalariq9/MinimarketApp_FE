@@ -88,7 +88,12 @@ const WorkerAddSalesTransaction = () => {
             variant="contained"
             color="primary"
             fullWidth
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, 
+              backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}
           >
             Submit
           </Button>

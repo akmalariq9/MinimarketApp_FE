@@ -86,7 +86,7 @@ const ManagerAllSales = () => {
       field: "detailTransaction",
       headerName: "Detail Transaction",
       width: 200,
-      flex: 1,
+      // flex: 1,
       sortable: false,
       renderCell: (params) => {
         return (
@@ -96,6 +96,11 @@ const ManagerAllSales = () => {
               size="small"
               startIcon={<AiOutlineEye />}
               style={{ marginLeft: "10px" }}
+              sx={{ backgroundColor: "#8B5FBF",
+                "&:hover": {
+                  backgroundColor: "#61398F",
+                },
+              }}
             >
               View
             </Button>
@@ -125,8 +130,21 @@ const ManagerAllSales = () => {
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
-        <div className="font-Poppins font-bold text-[18px]">
-          All Sales History.
+        <div className="flex justify-between items-center font-Poppins font-bold text-[18px]">
+        <div>All Sales History. </div>
+        <Button
+            variant="contained"
+            size="small"
+            component={Link}
+            to="/create-sales-transaction"
+            sx={{ backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}
+          >
+            Create Sales Transaction
+          </Button>
         </div>
         <br />
         <DataGrid

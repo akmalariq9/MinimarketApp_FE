@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const WorkerAddSalesTransaction = () => {
   const auth = useSelector((state) => state.pegawai);
   const navigate = useNavigate();
@@ -88,7 +88,12 @@ const WorkerAddSalesTransaction = () => {
             variant="contained"
             color="primary"
             fullWidth
-            sx={{ mt: 3 }}
+            sx={{ mt: 3,
+              backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}
           >
             Submit
           </Button>

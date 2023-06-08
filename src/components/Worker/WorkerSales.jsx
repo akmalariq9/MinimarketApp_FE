@@ -87,6 +87,12 @@ const WorkerSales = () => {
               size="small"
               startIcon={<BiPencil />}
               style={{ marginLeft: "10px" }}
+              sx={{
+                backgroundColor: "#8B5FBF",
+                "&:hover": {
+                  backgroundColor: "#61398F",
+                },
+              }}
             >
               Edit
             </Button>
@@ -121,6 +127,12 @@ const WorkerSales = () => {
             size="small"
             component={Link}
             to="/create-sales-transaction"
+            sx={{
+              backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}
           >
             Create Sales Transaction
           </Button>

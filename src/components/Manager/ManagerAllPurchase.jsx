@@ -98,6 +98,12 @@ const ManagerAllPurchase = () => {
               size="small"
               startIcon={<AiOutlineEye />}
               style={{ marginLeft: "10px" }}
+              sx={{
+                backgroundColor: "#8B5FBF",
+                "&:hover": {
+                  backgroundColor: "#61398F",
+                },
+              }}
             >
               View
             </Button>
@@ -111,7 +117,9 @@ const ManagerAllPurchase = () => {
     const supplier = data_supplier.find(
       (supplier) => supplier.id === item.supplier_id
     );
-    const pegawai = data_pegawai.find((pegawai) => pegawai.id === item.pegawai_id);
+    const pegawai = data_pegawai.find(
+      (pegawai) => pegawai.id === item.pegawai_id
+    );
     return {
       id: item.id,
       createdAt:
@@ -126,12 +134,23 @@ const ManagerAllPurchase = () => {
 
   return (
     <>
-      <div className="w-full mx-8 pt-1 mt-10 bg-white">
-      <Link to={`/transaksi-baru`}>
-
-          </Link>
-        <div className="font-Poppins font-bold text-[18px]">
-          All Purchase History.
+      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
+        <div className="flex justify-between items-center font-Poppins font-bold text-[18px]">
+          <div>All Purchase History.</div>
+          <Button
+            variant="contained"
+            size="small"
+            component={Link}
+            to="/create-purchase-transaction"
+            sx={{
+              backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}
+          >
+            Create Purchase Transaction
+          </Button>
         </div>
         <br />
         <DataGrid

@@ -131,6 +131,12 @@ const ManagerDetailPurchaseProduct = () => {
                 color="primary"
                 size="small"
                 className="font-Poppins font-bold text-[10px]"
+                sx={{
+                  backgroundColor: "#8B5FBF",
+                  "&:hover": {
+                    backgroundColor: "#61398F",
+                  },
+                }}
               >
                 Back
               </Button>
@@ -141,6 +147,12 @@ const ManagerDetailPurchaseProduct = () => {
                 color="primary"
                 size="small"
                 className="font-Poppins font-bold text-[10px]"
+                sx={{
+                  backgroundColor: "#8B5FBF",
+                  "&:hover": {
+                    backgroundColor: "#61398F",
+                  },
+                }}
               >
                 Add Product
               </Button>

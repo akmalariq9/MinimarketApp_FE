@@ -87,6 +87,12 @@ export default function WorkerPurchase() {
               size="small"
               startIcon={<BiPencil />}
               style={{ marginLeft: "10px" }}
+              sx={{
+                backgroundColor: "#8B5FBF",
+                "&:hover": {
+                  backgroundColor: "#61398F",
+                },
+              }}
             >
               Edit
             </Button>
@@ -122,6 +128,12 @@ export default function WorkerPurchase() {
             size="small"
             component={Link}
             to="/create-purchase-transaction"
+            sx={{
+              backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}
           >
             Create Purchase Transaction
           </Button>

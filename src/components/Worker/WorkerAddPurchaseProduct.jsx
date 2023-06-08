@@ -147,7 +147,12 @@ const WorkerAddPurchaseProduct = () => {
               })
             }
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3 }}>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3,
+              backgroundColor: "#8B5FBF",
+              "&:hover": {
+                backgroundColor: "#61398F",
+              },
+            }}>
             Create
           </Button>
         </form>

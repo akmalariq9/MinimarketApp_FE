@@ -112,7 +112,7 @@ const ManagerDetailSalesProduct = () => {
       id: barangs[index].id,
       itemName: item.nama,
       itemCount: barangs[index].jumlah_barang,
-      price: "Rp" + item.harga,
+      price: item.harga,
       totalPrice: item.harga * barangs[index].jumlah_barang,
     });
   });
@@ -131,6 +131,12 @@ const ManagerDetailSalesProduct = () => {
                 color="primary"
                 size="small"
                 className="font-Poppins font-bold text-[10px]"
+                sx={{
+                  backgroundColor: "#8B5FBF",
+                  "&:hover": {
+                    backgroundColor: "#61398F",
+                  },
+                }}
               >
                 Back
               </Button>
@@ -141,6 +147,12 @@ const ManagerDetailSalesProduct = () => {
                 color="primary"
                 size="small"
                 className="font-Poppins font-bold text-[10px]"
+                sx={{
+                  backgroundColor: "#8B5FBF",
+                  "&:hover": {
+                    backgroundColor: "#61398F",
+                  },
+                }}
               >
                 Add Product
               </Button>
