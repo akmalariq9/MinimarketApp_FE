@@ -45,29 +45,30 @@ const ManagerDashboardSidebar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
+      <div className={`w-full flex items-center p-4 ${
+        active === 2 ? "bg-[#D6C6E1]" : "bg-white"}`}>
         <Link to="/manager-all-purchase" className="w-full flex items-center">
-          <LuShoppingCart
+          <FiShoppingBag
             size={30}
-            color={`${active === 2 ? "crimson" : "#555"}`}
+            color={`${active === 2 ? "#61398F" : "#687083"}`}
           />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 2 ? "text-[crimson]" : "text-[#555]"
-            }`}
+          <h5 className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 2 ? "text-[#61398F]" : "text-[#687083]"}`}
           >
             All Purchase
           </h5>
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
+      <div className={`w-full flex items-center p-4 ${
+        active === 3 ? "bg-[#D6C6E1]" : "bg-white"}`}>
         <Link to="/manager-all-products" className="w-full flex items-center">
-          <FiPackage size={30} color={`${active === 3 ? "crimson" : "#555"}`} />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 3 ? "text-[crimson]" : "text-[#555]"
-            }`}
+          <FiShoppingBag
+            size={30}
+            color={`${active === 3 ? "#61398F" : "#687083"}`}
+          />
+          <h5 className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 3 ? "text-[#61398F]" : "text-[#687083]"}`}
           >
             All Product
           </h5>
