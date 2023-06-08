@@ -42,7 +42,7 @@ const App = () => {
           }
         />
         <Route
-          path="/dashboard-sales-history"
+          path="/sales-history"
           element={
             <WorkerProtectedRoute>
               <WorkerSalesHistoryPage />
@@ -50,7 +50,7 @@ const App = () => {
           }
         />
         <Route
-          path="/dashboard-purchase-history"
+          path="/purchase-history"
           element={
             <WorkerProtectedRoute>
               <WorkerPurchaseHistoryPage />

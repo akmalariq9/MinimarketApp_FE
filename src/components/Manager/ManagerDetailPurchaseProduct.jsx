@@ -18,9 +18,9 @@ const ManagerDetailPurchaseProduct = () => {
   
   let linkUrl;
   if (role === 1){
-    linkUrl = '/manager-all-sales';
+    linkUrl = '/manager-all-purchase';
   } else if (role === 2){
-    linkUrl = '/dashboard-purchase-history';
+    linkUrl = '/purchase-history';
   }
 
   useEffect(() => {

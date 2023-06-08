@@ -28,7 +28,7 @@ const WorkerAddSalesTransaction = () => {
       );
       console.log(response);
       // Redirect ke halaman /dashboard-sales-history setelah berhasil submit
-      navigate('/dashboard-purchase-history');
+      navigate('/purchase-history');
     } catch (error) {
       console.log(error);
     }

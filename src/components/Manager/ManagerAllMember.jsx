@@ -16,7 +16,7 @@ const ManagerAllMember = () => {
     {
       field: "id",
       headerName: "Member Id",
-      width: 150,
+      minWidth: 150,
       // flex: 1,
     },
 
@@ -25,27 +25,30 @@ const ManagerAllMember = () => {
       field: "nama",
       headerName: "Name",
       // width: 250,
-      flex: 1,
+      minWidth: 250,
+      // flex: 1,
     },
 
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      // width: 130,
-      flex: 1,
+      width: 250,
+      // minWidth: 200,
+      // flex: 1,
     },
     {
       field: "poin",
       headerName: "Points",
-      // width: 230,
-      flex: 1,
+      minWidth: 250,
+      // flex: 1,
     },
 
     {
       field: "createdAt",
       headerName: "Joined Date",
       // width: 150,
-      flex: 1,
+      minWidth: 250,
+      // flex: 1,
     },
   ];
 

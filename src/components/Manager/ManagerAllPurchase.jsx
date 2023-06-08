@@ -58,31 +58,37 @@ const ManagerAllPurchase = () => {
       field: "id",
       headerName: "Transaction Id",
       width: 150,
+      // flex: 1,
     },
     {
       field: "createdAt",
       headerName: "Transaction Date",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "worker",
       headerName: "Responsible Officer",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "supplier",
       headerName: "Supplier Name",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
-      flex: 1,
+      // flex: 1,
+      width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
-      flex: 1,
+      // flex: 1,
+      width: 200,
       sortable: false,
       renderCell: (params) => {
         return (
@@ -122,14 +128,7 @@ const ManagerAllPurchase = () => {
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white">
       <Link to={`/transaksi-baru`}>
-            {/* <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className="font-Poppins font-bold text-[10px]"
-            >
-              New
-            </Button> */}
+
           </Link>
         <div className="font-Poppins font-bold text-[18px]">
           All Purchase History.

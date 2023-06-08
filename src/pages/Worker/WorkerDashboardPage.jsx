@@ -5,7 +5,7 @@ import WorkerDashboardSidebar from '../../components/Layout/WorkerDashboardSideb
 const WorkerDashboardPage = () => {
   return (
     <div>
-      < DashboardHeader />
+      {/* < DashboardHeader /> */}
       < WorkerDashboardSidebar />
     </div>
 

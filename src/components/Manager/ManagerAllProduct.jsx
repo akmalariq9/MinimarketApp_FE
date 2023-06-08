@@ -19,30 +19,33 @@ export default function WorkerPurchase() {
     {
       field: "id",
       headerName: "Product Id",
-      width: 150,
+      width: 100,
+      // flex: 1,
     },
     {
       field: "nama",
       headerName: "Name",
-      width: 600,
       // flex: 1,
+      width: 550
     },
     {
       field: "jumlah_stok",
       headerName: "Stock",
-      width: 100,
       // flex: 1,
+      width: 150,
     },
     {
       field: "jenis_barang_id",
       headerName: "Category",
       // flex: 1,
-      width: 100,
+      // width: 150,
+      width: 150
     },
     {
       field: "price",
       headerName: "Price",
-      flex: 1,
+      minWidth: 150,
+      // flex: 1,
     },
   ];
 
@@ -76,7 +79,7 @@ export default function WorkerPurchase() {
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10"> {/* Tambahkan margin bawah di sini */}
         <div className="font-Poppins font-bold text-[18px]">
           All Available Products.
-        </div>{" "}
+        </div>
         <br />
         <FormControl variant="outlined" sx={{ minWidth: 200, marginBottom: "16px" }}>
           <InputLabel id="category-label">Category</InputLabel>
@@ -100,6 +103,7 @@ export default function WorkerPurchase() {
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          autoWidth
         />
       </div>
     </>

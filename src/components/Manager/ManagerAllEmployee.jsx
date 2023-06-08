@@ -24,22 +24,27 @@ const ManagerAllEmployee = () => {
     {
       field: "createdAt",
       headerName: "Accepted Date",
-      flex: 1,
+      // flex: 1,
+      width: 250,
     },
     {
       field: "nama",
       headerName: "Employee Name",
-      flex: 1,
+      // flex: 1,
+      width: 250,
+
     },
     {
       field: "email",
       headerName: "Email",
-      flex: 1,
+      // flex: 1,
+      width: 250,
     },
     {
       field: "workfield",
       headerName: "Work Field",
-      flex: 1,
+      // flex: 1,
+      width: 250,
     },
   ];
 
