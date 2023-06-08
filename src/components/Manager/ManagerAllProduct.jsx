@@ -5,14 +5,21 @@ import axios from "axios";
 
 export default function WorkerPurchase() {
   const [data, setData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All Categories"); // Atur nilai default ke "All Categories"
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [filteredData, setFilteredData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8000/barang").then((res) => {
       setData(res.data.data);
       setFilteredData(res.data.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/jenis-barang").then((res) => {
+      setCategories(res.data.data);
     });
   }, []);
 
@@ -29,43 +36,42 @@ export default function WorkerPurchase() {
     setFilteredData(filteredBySearch);
   }, [selectedCategory, searchValue, data]);
 
-
   const columns = [
     {
       field: "id",
       headerName: "Product Id",
       width: 100,
-      // flex: 1,
     },
     {
       field: "nama",
       headerName: "Name",
-      // flex: 1,
-      width: 550
+      width: 550,
     },
     {
       field: "jumlah_stok",
       headerName: "Stock",
-      // flex: 1,
       width: 150,
     },
     {
       field: "jenis_barang_id",
       headerName: "Category",
-      // flex: 1,
-      // width: 150,
-      width: 150
+      width: 150,
+      valueGetter: (params) => getCategoryName(params.value), // Mengambil nama kategori berdasarkan ID
     },
     {
       field: "price",
       headerName: "Price",
       minWidth: 150,
-      // flex: 1,
     },
   ];
 
-  const categories = [...new Set(data.map((item) => item.jenis_barang_id))];
-  categories.unshift("All Categories");
+  const getCategoryName = (categoryId) => {
+    if (categoryId === "All Categories") {
+      return categoryId;
+    }
+    const category = categories.find((item) => item.id === parseInt(categoryId));
+    return category ? category.kategori : "";
+  };
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
@@ -105,9 +111,10 @@ export default function WorkerPurchase() {
               onChange={handleCategoryChange}
               label="Category"
             >
+              <MenuItem value="All Categories">All Categories</MenuItem>
               {categories.map((category) => (
-                <MenuItem key={category} value={category}>
-                  {category}
+                <MenuItem key={category.id} value={category.id}>
+                  {category.kategori}
                 </MenuItem>
               ))}
             </Select>
