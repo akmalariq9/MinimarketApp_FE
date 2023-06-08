@@ -122,7 +122,7 @@ const WorkerAddProduct = () => {
               })
             }
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3 }}>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3, textTransform: "none",}}>
             Submit
           </Button>
         </form>

@@ -20,16 +20,19 @@ const ManagerAllEmployee = () => {
       field: "id",
       headerName: "Employee Id",
       width: 150,
+      headerClassName: "super-app-theme--header",
     },
     {
       field: "createdAt",
       headerName: "Accepted Date",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 250,
     },
     {
       field: "nama",
       headerName: "Employee Name",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 250,
 
@@ -37,12 +40,14 @@ const ManagerAllEmployee = () => {
     {
       field: "email",
       headerName: "Email",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 250,
     },
     {
       field: "workfield",
       headerName: "Work Field",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 250,
     },
@@ -105,6 +110,14 @@ const ManagerAllEmployee = () => {
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>
