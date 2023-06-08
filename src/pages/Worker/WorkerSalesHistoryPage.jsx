@@ -6,7 +6,7 @@ import WorkerSales from '../../components/Worker/WorkerSales'
 const WorkerSalesHistoryPage = () => {
     return (
         <div>
-            {/* <DashboardHeader /> */}
+            <DashboardHeader />
             <div className="flex justify-between w-full">
                 <div className="w-[80px] 800px:w-[330px]">
                   <WorkerDashboardSidebar active={1} />
