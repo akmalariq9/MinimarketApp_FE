@@ -57,34 +57,40 @@ const ManagerAllSales = () => {
       field: "id",
       headerName: "Transaction Id",
       width: 150,
+      headerClassName: "super-app-theme--header",
     },
     {
       field: "createdAt",
       headerName: "Transaction Date",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "worker",
       headerName: "Responsible Officer ID",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "member",
       headerName: "Member ID",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
+      headerClassName: "super-app-theme--header",
       width: 200,
       // flex: 1,
       sortable: false,
@@ -100,6 +106,7 @@ const ManagerAllSales = () => {
                 "&:hover": {
                   backgroundColor: "#61398F",
                 },
+                textTransform: "none",
               }}
             >
               View
@@ -141,6 +148,7 @@ const ManagerAllSales = () => {
               "&:hover": {
                 backgroundColor: "#61398F",
               },
+              textTransform: "none",
             }}
           >
             Create Sales Transaction
@@ -153,6 +161,14 @@ const ManagerAllSales = () => {
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>

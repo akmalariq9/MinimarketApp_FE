@@ -128,6 +128,7 @@ const Login = () => {
                   "&:hover": {
                     backgroundColor: "#61398F",
                   },
+                  textTransform: "none",
                 }}
               >
                 Submit

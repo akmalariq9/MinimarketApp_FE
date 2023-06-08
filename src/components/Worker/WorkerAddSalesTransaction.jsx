@@ -93,6 +93,7 @@ const WorkerAddSalesTransaction = () => {
               "&:hover": {
                 backgroundColor: "#61398F",
               },
+              textTransform: "none",
             }}
           >
             Submit

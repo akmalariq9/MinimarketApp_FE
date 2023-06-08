@@ -130,6 +130,7 @@ const WorkerAddSalesProduct = () => {
               "&:hover": {
                 backgroundColor: "#61398F",
               },
+              textTransform: "none",
             }}>
             Create
           </Button>

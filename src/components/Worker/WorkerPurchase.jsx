@@ -48,34 +48,40 @@ export default function WorkerPurchase() {
       field: "id",
       headerName: "Transaction Id",
       width: 150,
+      headerClassName: "super-app-theme--header",
     },
     {
       field: "createdAt",
       headerName: "Transaction Date",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "supplierID",
       headerName: "Supplier ID",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "supplierName",
       headerName: "Supplier Name",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
+      headerClassName: "super-app-theme--header",
       // flex: 1,
       width: 200,
       sortable: false,
@@ -145,6 +151,14 @@ export default function WorkerPurchase() {
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>

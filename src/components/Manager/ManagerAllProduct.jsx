@@ -41,27 +41,33 @@ export default function WorkerPurchase() {
       field: "id",
       headerName: "Product Id",
       width: 100,
+      headerClassName: "super-app-theme--header",
+
     },
     {
       field: "nama",
       headerName: "Name",
       width: 550,
+      headerClassName: "super-app-theme--header",
     },
     {
       field: "jumlah_stok",
       headerName: "Stock",
       width: 150,
+      headerClassName: "super-app-theme--header",
     },
     {
       field: "jenis_barang_id",
       headerName: "Category",
       width: 150,
+      headerClassName: "super-app-theme--header",
       valueGetter: (params) => getCategoryName(params.value), // Mengambil nama kategori berdasarkan ID
     },
     {
       field: "price",
       headerName: "Price",
       minWidth: 150,
+      headerClassName: "super-app-theme--header",
     },
   ];
 
@@ -135,6 +141,14 @@ export default function WorkerPurchase() {
           disableSelectionOnClick
           autoHeight
           autoWidth
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>

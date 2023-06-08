@@ -17,6 +17,7 @@ const ManagerAllMember = () => {
       field: "id",
       headerName: "Member Id",
       minWidth: 150,
+      headerClassName: "super-app-theme--header",
       // flex: 1,
     },
 
@@ -26,6 +27,7 @@ const ManagerAllMember = () => {
       headerName: "Name",
       // width: 250,
       minWidth: 250,
+      headerClassName: "super-app-theme--header",
       // flex: 1,
     },
 
@@ -33,6 +35,7 @@ const ManagerAllMember = () => {
       field: "phoneNumber",
       headerName: "Phone Number",
       width: 250,
+      headerClassName: "super-app-theme--header",
       // minWidth: 200,
       // flex: 1,
     },
@@ -40,6 +43,7 @@ const ManagerAllMember = () => {
       field: "poin",
       headerName: "Points",
       minWidth: 250,
+      headerClassName: "super-app-theme--header",
       // flex: 1,
     },
 
@@ -48,6 +52,7 @@ const ManagerAllMember = () => {
       headerName: "Joined Date",
       // width: 150,
       minWidth: 250,
+      headerClassName: "super-app-theme--header",
       // flex: 1,
     },
   ];
@@ -78,6 +83,14 @@ const ManagerAllMember = () => {
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>

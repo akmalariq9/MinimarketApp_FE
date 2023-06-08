@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, colors } from "@mui/material";
 import { AiOutlineEye } from "react-icons/ai";
 import { BiPencil } from "react-icons/bi";
 
@@ -47,35 +47,41 @@ const WorkerSales = () => {
     {
       field: "id",
       headerName: "Transaction Id",
+      headerClassName : "super-app-theme--header",
       width: 150,
     },
     {
       field: "createdAt",
       headerName: "Transaction Date",
+      headerClassName : "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "memberName",
       headerName: "Member Name",
+      headerClassName : "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "memberPoin",
       headerName: "Member Point",
+      headerClassName : "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "totalAmount",
       headerName: "Total Amount",
+      headerClassName : "super-app-theme--header",
       // flex: 1,
       width: 200,
     },
     {
       field: "detailTransaction",
       headerName: "Detail Transaction",
+      headerClassName : "super-app-theme--header",
       // flex: 1,
       width: 200,
       sortable: false,
@@ -92,6 +98,7 @@ const WorkerSales = () => {
                 "&:hover": {
                   backgroundColor: "#61398F",
                 },
+                textTransform: "none",
               }}
             >
               Edit
@@ -132,18 +139,27 @@ const WorkerSales = () => {
               "&:hover": {
                 backgroundColor: "#61398F",
               },
+              textTransform: "none",
             }}
           >
             Create Sales Transaction
           </Button>
         </div>
         <br />
-        <DataGrid
+        <DataGrid 
           rows={rows}
           columns={columns}
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>

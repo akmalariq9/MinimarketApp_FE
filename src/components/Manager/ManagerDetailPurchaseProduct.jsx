@@ -67,31 +67,37 @@ const ManagerDetailPurchaseProduct = () => {
     {
       field: "id",
       headerName: "Item Id on Transaction",
+      headerClassName: "super-app-theme--header",
       flex: 1,
     },
     {
       field: "itemName",
       headerName: "Item Name",
+      headerClassName: "super-app-theme--header",
       flex: 1,
     },
     {
       field: "itemCount",
       headerName: "Number of Items",
+      headerClassName: "super-app-theme--header",
       width: 250,
     },
     {
       field: "price",
       headerName: "Price per Item",
+      headerClassName: "super-app-theme--header",
       flex: 1,
     },
     {
       field: "totalPrice",
       headerName: "Total Price of Item",
+      headerClassName: "super-app-theme--header",
       flex: 1,
     },
     {
       field: "delete",
       headerName: "Delete Item",
+      headerClassName: "super-app-theme--header",
       width: 150,
       renderCell: (params) => (
         <IconButton
@@ -165,6 +171,14 @@ const ManagerDetailPurchaseProduct = () => {
           pageSize={10}
           disableSelectionOnClick
           autoHeight
+          sx={{
+            borderRadius: "10px",
+            '& .super-app-theme--header': {
+              backgroundColor: '#8B5FBF',
+              color: 'white',
+              fontStyle: 'bold',
+            }
+          }} 
         />
       </div>
     </>
