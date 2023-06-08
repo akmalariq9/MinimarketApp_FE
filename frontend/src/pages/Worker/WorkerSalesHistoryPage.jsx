@@ -1,0 +1,22 @@
+import React from 'react'
+import DashboardHeader from '../../components/Layout/WorkerDashboardHeader'
+import WorkerDashboardSidebar from '../../components/Layout/WorkerDashboardSidebar'
+import WorkerSales from '../../components/Worker/WorkerSales'
+
+const WorkerSalesHistoryPage = () => {
+    return (
+        <div>
+            <DashboardHeader />
+            <div className="flex justify-between w-full">
+                <div className="w-[80px] 800px:w-[330px]">
+                  <WorkerDashboardSidebar active={1} />
+                </div>
+                <div className="w-full justify-center flex">
+                  <WorkerSales/>
+                </div>
+              </div>
+        </div>
+      )
+}
+
+export default WorkerSalesHistoryPage
