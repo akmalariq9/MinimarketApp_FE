@@ -19,6 +19,8 @@ import WorkerAddSalesTransaction from "./components/Worker/WorkerAddSalesTransac
 import WorkerAddPurchaseTransaction from "./components/Worker/WorkerAddPurchaseTransaction.jsx";
 import WorkerAddSalesProduct from "./components/Worker/WorkerAddSalesProduct.jsx";
 import WorkerAddPurchaseProduct from "./components/Worker/WorkerAddPurchaseProduct.jsx";
+import ManagerAllSupplierPage from "./pages/Manager/ManagerAllSupplierPage.jsx";
+import WorkerAllProductPage from "./pages/Worker/WorkerAllProductPage.jsx";
 
 const App = () => {
   return (
@@ -49,6 +51,7 @@ const App = () => {
             </WorkerProtectedRoute>
           }
         />
+
         <Route
           path="/purchase-history"
           element={
@@ -57,6 +60,16 @@ const App = () => {
             </WorkerProtectedRoute>
           }
         />
+
+        <Route
+          path="/all-product"
+          element={
+            <WorkerProtectedRoute>
+              <WorkerAllProductPage />
+            </WorkerProtectedRoute>
+          }
+        />
+
         <Route
           path="/manager-dashboard"
           element={
@@ -108,6 +121,14 @@ const App = () => {
             </ManagerProtectedRoute>
           }
         />
+        <Route
+          path="/manager-all-supplier"
+          element={
+            // <ManagerProtectedRoute>
+            <ManagerAllSupplierPage />
+            // </ManagerProtectedRoute>
+          }
+        />
 
         <Route
           path="/barang-transaksi-penjualan/:id"
@@ -131,7 +152,7 @@ const App = () => {
           path="/create-sales-transaction/"
           element={
             // <WorkerProtectedRoute>
-              <WorkerAddSalesTransaction />
+            <WorkerAddSalesTransaction />
             // </WorkerProtectedRoute>
           }
         />
@@ -140,7 +161,7 @@ const App = () => {
           path="/create-purchase-transaction/"
           element={
             // <WorkerProtectedRoute>
-              <WorkerAddPurchaseTransaction />
+            <WorkerAddPurchaseTransaction />
             // </WorkerProtectedRoute>
           }
         />

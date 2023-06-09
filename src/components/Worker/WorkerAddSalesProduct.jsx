@@ -78,7 +78,7 @@ const WorkerAddSalesProduct = () => {
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
       <Box width="400px" p={3} bgcolor="white" boxShadow={3} borderRadius={8}>
         <Typography variant="h6" align="center" fontWeight="bold" gutterBottom>
-          Add Sales Transaction
+          Add Products
         </Typography>
         <form onSubmit={handleCreateTransactionBarang}>
           <TextField

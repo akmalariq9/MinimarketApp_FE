@@ -5,12 +5,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { BiPencil } from "react-icons/bi";
-import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 export default function WorkerPurchase() {
   const auth = useSelector((state) => state.pegawai);
   const [data_transaksi, setDataTransaksi] = useState([]);
-  const [data, setData] = useState([]);
   const [data_supplier, setDataSupplier] = useState([]);
   const [supplier_id, setSupplierId] = useState([]);
 
@@ -46,44 +45,45 @@ export default function WorkerPurchase() {
   const columns = [
     {
       field: "id",
-      headerName: "Transaction Id",
-      width: 150,
+      headerName: "ID",
+      // width: 150,
+      flex: 1,
       headerClassName: "super-app-theme--header",
     },
     {
       field: "createdAt",
-      headerName: "Transaction Date",
+      headerName: "Date",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      width: 200,
+      // width: 200,
     },
     {
       field: "supplierID",
       headerName: "Supplier ID",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      width: 200,
+      // width: 200,
     },
     {
       field: "supplierName",
       headerName: "Supplier Name",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      width: 200,
+      // width: 200,
     },
     {
       field: "totalAmount",
-      headerName: "Total Amount",
+      headerName: "Total",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      width: 200,
+      // width: 200,
     },
     {
       field: "detailTransaction",
-      headerName: "Detail Transaction",
+      headerName: "Detail",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      width: 200,
+      // width: 200,
       sortable: false,
       renderCell: (params) => {
         return (
@@ -92,7 +92,7 @@ export default function WorkerPurchase() {
               variant="contained"
               size="small"
               startIcon={<BiPencil />}
-              style={{ marginLeft: "10px" }}
+              // style={{ marginLeft: "10px" }}
               sx={{
                 backgroundColor: "#8B5FBF",
                 "&:hover": {
@@ -128,20 +128,22 @@ export default function WorkerPurchase() {
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white">
         <div className="flex justify-between items-center font-Poppins font-bold text-[18px]">
-          <div>All Purchase History that You Serve.</div>
+          <div>Purchase Transactions.</div>
           <Button
             variant="contained"
             size="small"
             component={Link}
             to="/create-purchase-transaction"
+            startIcon={<AiOutlinePlusCircle />}
             sx={{
               backgroundColor: "#8B5FBF",
               "&:hover": {
                 backgroundColor: "#61398F",
               },
+              textTransform: "none",
             }}
           >
-            Create Purchase Transaction
+            Create Transaction
           </Button>
         </div>
         <br />

@@ -65,42 +65,62 @@ const ManagerAllEmployee = () => {
     }
   };
 
+  const getWorkFieldLabel = (workFieldId) => {
+    if (workFieldId === 1) {
+      return "Manager";
+    } else if (workFieldId === 2) {
+      return "Staff";
+    } else {
+      return "";
+    }
+  };
+
   const rows = filteredData.map((item) => ({
     id: item.id,
     createdAt:
-      item.createdAt.split("T")[0] + " " + item.createdAt.split("T")[1].split("Z")[0],
+      item.createdAt.split("T")[0] +
+      " " +
+      item.createdAt.split("T")[1].split("Z")[0],
     nama: item.nama ? item.nama : "-",
     email: item.email,
     workfield: item.bidang_kerja_id === 1 ? "Manager" : "Staff",
     updatedAt:
-      item.updatedAt.split("T")[0] + " " + item.updatedAt.split("T")[1].split("Z")[0],
+      item.updatedAt.split("T")[0] +
+      " " +
+      item.updatedAt.split("T")[1].split("Z")[0],
   }));
 
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
-        <div className="font-Poppins font-bold text-[18px]"
+        <div
+          className="font-Poppins font-bold text-[18px]"
           style={{
             color: "#212121",
             fontSize: "36px",
-            fontFamily: "Montserrat"
+            fontFamily: "Montserrat",
           }}
         >
           Employee
         </div>
         <br />
-        <FormControl variant="outlined" sx={{ minWidth: 200, marginBottom: "16px" }}>
-          <InputLabel id="workfield-label">Work Field</InputLabel>
+        <FormControl
+          variant="outlined"
+          sx={{ minWidth: 200, marginBottom: "16px" }}
+        >
+          <InputLabel>Work Field</InputLabel>
           <Select
             labelId="workfield-label"
             id="workfield"
             value={selectedWorkField}
             onChange={handleWorkFieldChange}
             label="Work Field"
+            // label="Category"
+            // sx={{ height: "41px"}}
           >
             {workFields.map((field) => (
               <MenuItem key={field} value={field}>
-                {field === "All" ? "All" : `${field}`}
+                {field === "All" ? "All" : getWorkFieldLabel(field)}
               </MenuItem>
             ))}
           </Select>
@@ -113,12 +133,12 @@ const ManagerAllEmployee = () => {
           autoHeight
           sx={{
             borderRadius: "10px",
-            '& .super-app-theme--header': {
-              backgroundColor: '#8B5FBF',
-              color: 'white',
-              fontStyle: 'bold',
-            }
-          }} 
+            "& .super-app-theme--header": {
+              backgroundColor: "#8B5FBF",
+              color: "white",
+              fontStyle: "bold",
+            },
+          }}
         />
       </div>
     </>

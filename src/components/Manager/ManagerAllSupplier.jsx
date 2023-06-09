@@ -2,81 +2,73 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { TextField } from "@mui/material";	
 
-const ManagerAllMember = () => {
+const ManagerAllSupplier = () => {
   const [data, setData] = useState([]);
-  const [searchValue, setSearchValue] = useState("");	
-  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/member`).then((res) => {
+    axios.get(`http://localhost:8000/supplier`).then((res) => {
       setData(res.data.data);
     });
   }, []);
-
-  	
-  useEffect(() => {	
-    const filteredRows = data.filter((item) => {	
-      // Ganti properti berikut dengan properti yang sesuai di objek 'item' dalam 'data'	
-      return (	
-        item.no_telepon &&	
-        item.no_telepon.toString().includes(searchValue)	
-      );	
-    });	
-    setFilteredData(filteredRows);	
-  }, [data, searchValue]);	
-  const handleSearchChange = (event) => {	
-    const searchValue = event.target.value;	
-    setSearchValue(searchValue);	
-  };	
 
   const columns = [
     {
       field: "id",
       headerName: "ID",
-      minWidth: 150,
+      // minWidth: 150,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
+
+
     {
       field: "nama",
       headerName: "Name",
+      // width: 250,
+      // minWidth: 250,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
+
     {
-      field: "no_telepon",
+      field: "phoneNumber",
       headerName: "Phone Number",
+      // width: 250,
       headerClassName: "super-app-theme--header",
+      // minWidth: 200,
       flex: 1,
     },
     {
-      field: "poin",
-      headerName: "Points",
+      field: "email",
+      headerName: "Email",
+      // minWidth: 250,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
+
     {
       field: "createdAt",
       headerName: "Joined Date",
+      // width: 150,
+      // minWidth: 250,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
   ];
 
-  // const rows = [];
+  const rows = [];
 
-  // data &&
-  // data.forEach((item) => {
-  //     rows.push({
-  //       id: item.id,
-  //       createdAt: item.createdAt.split("T")[0] + " " + item.createdAt.split("T")[1].split("Z")[0],
-  //       nama: item.nama,
-  //       phoneNumber: item.no_telepon,
-  //       poin: item.poin,
-  //     });
-  //   });
+  data &&
+  data.forEach((item) => {
+      rows.push({
+        id: item.id,
+        createdAt: item.createdAt.split("T")[0] + " " + item.createdAt.split("T")[1].split("Z")[0],
+        nama: item.nama,
+        email: item.email,
+        phoneNumber: item.no_telepon,
+      });
+    });
 
   return (
     <>
@@ -88,22 +80,11 @@ const ManagerAllMember = () => {
             fontFamily: "Montserrat"
           }}
         >
-          Member
+          Supplier
         </div>{" "}
         <br />
-        <div className="mb-4">	
-          <TextField	
-            label="Search by Phone Number"	
-            variant="outlined"	
-            size="small"	
-            value={searchValue}	
-            onChange={handleSearchChange}	
-            inputProps={{ style: { height: "24px" } }}	
-            sx={{ width: 230 }}	
-          />	
-        </div>
         <DataGrid
-          rows={filteredData}
+          rows={rows}
           columns={columns}
           pageSize={10}
           disableSelectionOnClick
@@ -117,9 +98,10 @@ const ManagerAllMember = () => {
             }
           }} 
         />
+        
       </div>
     </>
   );
 };
 
-export default ManagerAllMember;
+export default ManagerAllSupplier;

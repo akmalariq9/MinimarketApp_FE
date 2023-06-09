@@ -3,8 +3,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, colors } from "@mui/material";
-import { AiOutlineEye } from "react-icons/ai";
+import { Button, } from "@mui/material";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiPencil } from "react-icons/bi";
 
 const WorkerSales = () => {
@@ -12,7 +12,6 @@ const WorkerSales = () => {
   const [data_transaksi, setDataTransaksi] = useState([]);
   const [member_id, setMemberId] = useState([]);
   const [data_member, setDataMember] = useState([]);
-  const [data_pegawai, setDataPegawai] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,44 +45,45 @@ const WorkerSales = () => {
   const columns = [
     {
       field: "id",
-      headerName: "Transaction Id",
+      headerName: "ID",
       headerClassName : "super-app-theme--header",
-      width: 150,
+      // width: 150,
+      flex: 1,
     },
     {
       field: "createdAt",
-      headerName: "Transaction Date",
+      headerName: "Date",
       headerClassName : "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "memberName",
-      headerName: "Member Name",
+      headerName: "Member",
       headerClassName : "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "memberPoin",
-      headerName: "Member Point",
+      headerName: "Point",
       headerClassName : "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "totalAmount",
-      headerName: "Total Amount",
+      headerName: "Total",
       headerClassName : "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "detailTransaction",
-      headerName: "Detail Transaction",
+      headerName: "Detail",
       headerClassName : "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
       sortable: false,
       renderCell: (params) => {
         return (
@@ -92,7 +92,7 @@ const WorkerSales = () => {
               variant="contained"
               size="small"
               startIcon={<BiPencil />}
-              style={{ marginLeft: "10px" }}
+              // style={{ marginLeft: "10px" }}
               sx={{
                 backgroundColor: "#8B5FBF",
                 "&:hover": {
@@ -128,12 +128,13 @@ const WorkerSales = () => {
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white">
         <div className="flex justify-between items-center font-Poppins font-bold text-[18px]">
-          <div>All Sales History that You Serve.</div>
+          <div>Sales Transactions.</div>
           <Button
             variant="contained"
             size="small"
             component={Link}
             to="/create-sales-transaction"
+            startIcon={<AiOutlinePlusCircle />}
             sx={{
               backgroundColor: "#8B5FBF",
               "&:hover": {
@@ -142,7 +143,7 @@ const WorkerSales = () => {
               textTransform: "none",
             }}
           >
-            Create Sales Transaction
+            Create Transaction
           </Button>
         </div>
         <br />

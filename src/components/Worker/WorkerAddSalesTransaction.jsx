@@ -17,7 +17,7 @@ const WorkerAddSalesTransaction = () => {
   const handleCreateTransactionBarang = async (e) => {
     e.preventDefault();
     try {
-      const timestamp = new Date().toLocaleTimeString(); // Mendapatkan waktu saat tombol submit diklik
+      // const timestamp = new Date().toLocaleTimeString(); // Mendapatkan waktu saat tombol submit diklik
       const response = await axios.post(
         'http://localhost:8000/transaksi-penjualan',
         {
@@ -60,6 +60,7 @@ const WorkerAddSalesTransaction = () => {
             label="Member ID"
             variant="outlined"
             placeholder="Member ID"
+            required
             value={transaksi.member_id}
             onChange={(e) =>
               setTransaksi({

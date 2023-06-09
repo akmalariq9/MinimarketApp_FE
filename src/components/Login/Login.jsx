@@ -1,9 +1,10 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles";
 import { useSelector, useDispatch } from "react-redux";
 import { loginPegawai, logoutPegawai } from "../../redux/reducers/pegawaiSlice";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,13 +23,20 @@ const Login = () => {
       toast.warning("Email and Password cannot be empty");
     } else {
       console.log("success");
-      dispatch(loginPegawai(user));
+      dispatch(loginPegawai(user))
+        .then((response) => {
+          // Login berhasil
+          if (response.payload.success) {
+            toast.success("Login successful");
+          } else {
+            toast.error("Invalid email or password");
+          }
+        })
+        .catch((error) => {
+          // Login gagal
+          toast.error("An error occurred during login");
+        });
     }
-  };
-
-  const handleLogout = async (e) => {
-    //e.preventDefault();
-    dispatch(logoutPegawai());
   };
 
   return (
@@ -143,6 +151,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      <ToastContainer position="top-center" />
     </div>
   );
 };

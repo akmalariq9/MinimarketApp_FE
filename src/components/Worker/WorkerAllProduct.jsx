@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Select, MenuItem, FormControl, InputLabel, TextField } from "@mui/material";
 import axios from "axios";
 
-export default function ManagerAllProduct() {
+export default function WorkerAllProduct() {
   const [data, setData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [filteredData, setFilteredData] = useState([]);

@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-const WorkerAddSalesTransaction = () => {
+
+const WorkerAddPurchaseTransaction = () => {
   const auth = useSelector((state) => state.pegawai);
   const navigate = useNavigate();
   const [transaksi, setTransaksi] = useState({
@@ -50,7 +51,7 @@ const WorkerAddSalesTransaction = () => {
         boxShadow={3}
         borderRadius={8}
       >
-        <Typography variant="h6" align="center" fontWeight="bold" gutterBottom>
+        <Typography variant="h6" align="center" fontWeight="bold" gutterBottom >
           Add Purchase Transaction
         </Typography>
         <form onSubmit={handleCreateTransactionBarang}>
@@ -105,4 +106,4 @@ const WorkerAddSalesTransaction = () => {
   );
 };
 
-export default WorkerAddSalesTransaction;
+export default WorkerAddPurchaseTransaction;
