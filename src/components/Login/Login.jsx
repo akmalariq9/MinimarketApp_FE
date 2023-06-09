@@ -121,7 +121,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#8B5FBF] hover:bg-[#61398F]"
                 onClick={handleSubmit}
                 sx={{
                   backgroundColor: "#8B5FBF",

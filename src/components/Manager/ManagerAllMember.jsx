@@ -18,7 +18,7 @@ const ManagerAllMember = () => {
       headerName: "Member Id",
       minWidth: 150,
       headerClassName: "super-app-theme--header",
-      // flex: 1,
+      flex: 1,
     },
 
 
@@ -26,34 +26,34 @@ const ManagerAllMember = () => {
       field: "nama",
       headerName: "Name",
       // width: 250,
-      minWidth: 250,
+      // minWidth: 250,
       headerClassName: "super-app-theme--header",
-      // flex: 1,
+      flex: 1,
     },
 
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      width: 250,
+      // width: 250,
       headerClassName: "super-app-theme--header",
       // minWidth: 200,
-      // flex: 1,
+      flex: 1,
     },
     {
       field: "poin",
       headerName: "Points",
-      minWidth: 250,
+      // minWidth: 250,
       headerClassName: "super-app-theme--header",
-      // flex: 1,
+      flex: 1,
     },
 
     {
       field: "createdAt",
       headerName: "Joined Date",
       // width: 150,
-      minWidth: 250,
+      // minWidth: 250,
       headerClassName: "super-app-theme--header",
-      // flex: 1,
+      flex: 1,
     },
   ];
 

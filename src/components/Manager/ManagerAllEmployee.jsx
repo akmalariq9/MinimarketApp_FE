@@ -19,37 +19,38 @@ const ManagerAllEmployee = () => {
     {
       field: "id",
       headerName: "Employee Id",
-      width: 150,
+      // width: 150,
+      flex: 1,
       headerClassName: "super-app-theme--header",
     },
     {
       field: "createdAt",
       headerName: "Accepted Date",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 250,
+      flex: 1,
+      // width: 250,
     },
     {
       field: "nama",
       headerName: "Employee Name",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 250,
+      flex: 1,
+      // width: 250,
 
     },
     {
       field: "email",
       headerName: "Email",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 250,
+      flex: 1,
+      // width: 250,
     },
     {
       field: "workfield",
       headerName: "Work Field",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 250,
+      flex: 1,
+      // width: 250,
     },
   ];
 

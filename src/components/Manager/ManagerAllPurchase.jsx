@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
-import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEye, AiOutlinePlusCircle } from "react-icons/ai";
 
 const ManagerAllPurchase = () => {
   const [data_transaksi, setDataTransaksi] = useState([]);
@@ -56,44 +56,44 @@ const ManagerAllPurchase = () => {
   const columns = [
     {
       field: "id",
-      headerName: "Transaction Id",
-      width: 150,
+      headerName: "ID",
+      // width: 150,
       headerClassName: "super-app-theme--header",
-      // flex: 1,
+      flex: 1,
     },
     {
       field: "createdAt",
-      headerName: "Transaction Date",
+      headerName: "Date",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "worker",
-      headerName: "Responsible Officer",
+      headerName: "Employee",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "supplier",
-      headerName: "Supplier Name",
+      headerName: "Supplier",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "totalAmount",
-      headerName: "Total Amount",
+      headerName: "Total",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
-      width: 200,
+      flex: 1,
+      // width: 200,
     },
     {
       field: "detailTransaction",
-      headerName: "Detail Transaction",
+      headerName: "Detail",
       headerClassName: "super-app-theme--header",
-      // flex: 1,
+      flex: 1,
       width: 200,
       sortable: false,
       renderCell: (params) => {
@@ -148,6 +148,7 @@ const ManagerAllPurchase = () => {
             variant="contained"
             size="small"
             component={Link}
+            startIcon={<AiOutlinePlusCircle />}
             to="/create-purchase-transaction"
             sx={{
               backgroundColor: "#8B5FBF",
@@ -157,7 +158,7 @@ const ManagerAllPurchase = () => {
               textTransform: "none",
             }}
           >
-            Create Purchase Transaction
+            New Transaction
           </Button>
         </div>
         <br />

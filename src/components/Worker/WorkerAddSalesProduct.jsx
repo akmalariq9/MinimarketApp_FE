@@ -87,6 +87,7 @@ const WorkerAddSalesProduct = () => {
             label="Product Count"
             variant="outlined"
             placeholder="Product Count"
+            required
             value={transaksi.jumlah_barang}
             onChange={(e) =>
               setTransaksi({
@@ -99,6 +100,7 @@ const WorkerAddSalesProduct = () => {
             fullWidth
             margin="normal"
             options={barang}
+            // required
             getOptionLabel={(option) => option.nama || ""}
             renderInput={(params) => (
               <TextField
@@ -106,10 +108,12 @@ const WorkerAddSalesProduct = () => {
                 label="Search Item"
                 variant="outlined"
                 placeholder="Search Item"
+                required
               />
             )}
             value={selectedBarang} // Menggunakan state selectedBarang untuk menampilkan nama produk
             onChange={handleBarangChange}
+            // required
           />
           <TextField
             fullWidth

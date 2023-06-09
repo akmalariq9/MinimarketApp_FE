@@ -88,6 +88,7 @@ const WorkerAddPurchaseProduct = () => {
             variant="outlined"
             placeholder="Product Count"
             value={transaksi.jumlah_barang}
+            required
             onChange={(e) =>
               setTransaksi({
                 ...transaksi,
@@ -106,6 +107,7 @@ const WorkerAddPurchaseProduct = () => {
                 label="Search Item"
                 variant="outlined"
                 placeholder="Search Item"
+                required
               />
             )}
             value={selectedBarang} // Menggunakan state selectedBarang untuk menampilkan nama produk

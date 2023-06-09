@@ -40,26 +40,30 @@ export default function WorkerPurchase() {
     {
       field: "id",
       headerName: "Product Id",
-      width: 100,
+      // width: 100,
+      flex: 1,
       headerClassName: "super-app-theme--header",
 
     },
     {
       field: "nama",
       headerName: "Name",
-      width: 550,
+      // width: 550,
+      flex: 1,
       headerClassName: "super-app-theme--header",
     },
     {
       field: "jumlah_stok",
       headerName: "Stock",
-      width: 150,
+      // width: 150,
+      flex: 1,
       headerClassName: "super-app-theme--header",
     },
     {
       field: "jenis_barang_id",
       headerName: "Category",
-      width: 150,
+      // width: 150,
+      flex: 1,
       headerClassName: "super-app-theme--header",
       valueGetter: (params) => getCategoryName(params.value), // Mengambil nama kategori berdasarkan ID
     },

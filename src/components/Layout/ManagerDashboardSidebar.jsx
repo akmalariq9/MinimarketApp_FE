@@ -45,7 +45,7 @@ const ManagerDashboardSidebar = ({ active }) => {
               active === 1 ? "text-[#61398F]" : "text-[#687083]"
             }`}
           >
-            All Sales
+            Sale Transactions
           </h5>
         </Link>
       </div>
@@ -65,7 +65,7 @@ const ManagerDashboardSidebar = ({ active }) => {
               active === 2 ? "text-[#61398F]" : "text-[#687083]"
             }`}
           >
-            All Purchase
+            Purchase Transactions
           </h5>
         </Link>
       </div>

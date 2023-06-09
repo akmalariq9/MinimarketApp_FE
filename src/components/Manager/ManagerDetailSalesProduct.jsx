@@ -80,7 +80,8 @@ const ManagerDetailSalesProduct = () => {
       field: "itemCount",
       headerName: "Number of Items",
       headerClassName: "super-app-theme--header",
-      width: 250,
+      // width: 250,
+      flex: 1,
     },
     {
       field: "price",
@@ -98,7 +99,8 @@ const ManagerDetailSalesProduct = () => {
       field: "delete",
       headerName: "Delete Item",
       headerClassName: "super-app-theme--header",
-      width: 150,
+      // width: 150,
+      flex: 1,
       renderCell: (params) => (
         <IconButton
           aria-label="delete"

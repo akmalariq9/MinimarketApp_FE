@@ -60,6 +60,7 @@ const WorkerAddSalesTransaction = () => {
             label="Supplier ID"
             variant="outlined"
             placeholder="supplier ID"
+            required
             value={transaksi.supplier_id}
             onChange={(e) =>
               setTransaksi({
