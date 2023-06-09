@@ -18,39 +18,33 @@ const ManagerAllEmployee = () => {
   const columns = [
     {
       field: "id",
-      headerName: "Employee Id",
-      // width: 150,
-      flex: 1,
-      headerClassName: "super-app-theme--header",
-    },
-    {
-      field: "createdAt",
-      headerName: "Accepted Date",
+      headerName: "ID",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      // width: 250,
     },
     {
       field: "nama",
-      headerName: "Employee Name",
+      headerName: "Name",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      // width: 250,
-
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      headerClassName: "super-app-theme--header",
-      flex: 1,
-      // width: 250,
     },
     {
       field: "workfield",
       headerName: "Work Field",
       headerClassName: "super-app-theme--header",
       flex: 1,
-      // width: 250,
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      headerClassName: "super-app-theme--header",
+      flex: 1,
+    },
+    {
+      field: "createdAt",
+      headerName: "Joined Date",
+      headerClassName: "super-app-theme--header",
+      flex: 1,
     },
   ];
 
@@ -84,9 +78,15 @@ const ManagerAllEmployee = () => {
 
   return (
     <>
-      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10"> {/* Tambahkan margin bawah di sini */}
-        <div className="font-Poppins font-bold text-[18px]">
-          All Employee in SakinahMart.
+      <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
+        <div className="font-Poppins font-bold text-[18px]"
+          style={{
+            color: "#212121",
+            fontSize: "36px",
+            fontFamily: "Montserrat"
+          }}
+        >
+          Employee
         </div>
         <br />
         <FormControl variant="outlined" sx={{ minWidth: 200, marginBottom: "16px" }}>

@@ -15,43 +15,32 @@ const ManagerAllMember = () => {
   const columns = [
     {
       field: "id",
-      headerName: "Member Id",
+      headerName: "ID",
       minWidth: 150,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
-
-
     {
       field: "nama",
       headerName: "Name",
-      // width: 250,
-      // minWidth: 250,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
-
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      // width: 250,
       headerClassName: "super-app-theme--header",
-      // minWidth: 200,
       flex: 1,
     },
     {
       field: "poin",
       headerName: "Points",
-      // minWidth: 250,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
-
     {
       field: "createdAt",
       headerName: "Joined Date",
-      // width: 150,
-      // minWidth: 250,
       headerClassName: "super-app-theme--header",
       flex: 1,
     },
@@ -73,8 +62,14 @@ const ManagerAllMember = () => {
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10"> {/* Tambahkan margin bawah di sini */}
-        <div className="font-Poppins font-bold text-[18px]">
-          All Joined Member.
+        <div className="font-Poppins font-bold text-[18px]"
+          style={{
+            color: "#212121",
+            fontSize: "36px",
+            fontFamily: "Montserrat"
+          }}
+        >
+          Member
         </div>{" "}
         <br />
         <DataGrid

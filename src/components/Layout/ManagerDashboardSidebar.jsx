@@ -17,8 +17,17 @@ const ManagerDashboardSidebar = ({ active }) => {
   };
 
   return (
-    <div className="h-screen bg-white shadow-sm sticky top-0 left-0 z-10">
-      <div className="p-6">
+    <div className="h-screen bg-white shadow-sm sticky top-0 left-0 z-10"
+      style={{
+        borderRight: "2px solid #E9E4ED"
+      }}
+    >
+      <div className="p-6"
+        style={{
+          marginTop: "24px",
+          marginBottom: "24px"
+        }}
+      >
         <Link to="/">
           <img
             src="https://drive.google.com/uc?export=view&id=1lIopMW2r-7VIwEm8UZBM3zJw5iHhQiZT"
@@ -32,7 +41,7 @@ const ManagerDashboardSidebar = ({ active }) => {
       {/* single item */}
       <div
         className={`w-full flex items-center p-4 ${
-          active === 1 ? "bg-[#D6C6E1]" : "bg-white"
+          active === 1 ? "bg-[#E9E4ED]" : "bg-white"
         }`}
       >
         <Link to="/manager-all-sales" className="w-full flex items-center">
@@ -44,6 +53,12 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 1 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
             Sale Transactions
           </h5>
@@ -52,7 +67,7 @@ const ManagerDashboardSidebar = ({ active }) => {
 
       <div
         className={`w-full flex items-center p-4 ${
-          active === 2 ? "bg-[#D6C6E1]" : "bg-white"
+          active === 2 ? "bg-[#E9E4ED]" : "bg-white"
         }`}
       >
         <Link to="/manager-all-purchase" className="w-full flex items-center">
@@ -64,6 +79,12 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 2 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
             Purchase Transactions
           </h5>
@@ -72,7 +93,7 @@ const ManagerDashboardSidebar = ({ active }) => {
 
       <div
         className={`w-full flex items-center p-4 ${
-          active === 3 ? "bg-[#D6C6E1]" : "bg-white"
+          active === 3 ? "bg-[#E9E4ED]" : "bg-white"
         }`}
       >
         <Link to="/manager-all-products" className="w-full flex items-center">
@@ -84,15 +105,21 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 3 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
-            All Product
+            Product
           </h5>
         </Link>
       </div>
 
       <div
         className={`w-full flex items-center p-4 ${
-          active === 4 ? "bg-[#D6C6E1]" : "bg-white"
+          active === 4 ? "bg-[#E9E4ED]" : "bg-white"
         }`}
       >
         <Link to="/manager-all-employee" className="w-full flex items-center">
@@ -104,14 +131,20 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 4 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
-            All Employee
+            Employee
           </h5>
         </Link>
       </div>
 
       <div className={`w-full flex items-center p-4 ${
-          active === 5 ? "bg-[#D6C6E1]" : "bg-white"
+          active === 5 ? "bg-[#E9E4ED]" : "bg-white"
         }`}
       >
         <Link to="/manager-all-member" className="w-full flex items-center">
@@ -123,18 +156,30 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 5 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
-            All Member
+            Member
           </h5>
         </Link>
       </div>
 
       <button className="w-full flex items-center p-4" onClick={handleLogout}>
-        <BiLogOut size={30} color={active === 6 ? "crimson" : "#555"} />
+        <BiLogOut size={30} color={active === 6 ? "crimson" : "#687083"} />
         <h5
           className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-            active === 6 ? "text-[crimson]" : "text-[#555]"
+            active === 6 ? "text-[#61398F]" : "text-[#687083]"
           }`}
+          style={{
+            fontFamily: "Montserrat",
+            fontSize: "16px",
+            fontWeight: "600",
+            marginLeft: "8px"
+          }}
         >
           Logout
         </h5>
