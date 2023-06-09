@@ -102,7 +102,6 @@ const ManagerAllSales = () => {
               variant="contained"
               size="small"
               startIcon={<AiOutlineEye />}
-              style={{ marginLeft: "10px" }}
               sx={{ backgroundColor: "#8B5FBF",
                 "&:hover": {
                   backgroundColor: "#61398F",
@@ -139,7 +138,15 @@ const ManagerAllSales = () => {
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
         <div className="flex justify-between items-center font-Poppins font-bold text-[18px]">
-        <div>All Sales History. </div>
+        <div className="font-Poppins font-bold text-[18px]"
+          style={{
+            color: "#212121",
+            fontSize: "36px",
+            fontFamily: "Montserrat"
+          }}
+        >
+          Sale Transaction
+        </div>
         <Button
             variant="contained"
             size="small"

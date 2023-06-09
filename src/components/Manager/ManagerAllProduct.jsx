@@ -39,7 +39,7 @@ export default function WorkerPurchase() {
   const columns = [
     {
       field: "id",
-      headerName: "Product Id",
+      headerName: "ID",
       // width: 100,
       flex: 1,
       headerClassName: "super-app-theme--header",
@@ -70,7 +70,8 @@ export default function WorkerPurchase() {
     {
       field: "price",
       headerName: "Price",
-      minWidth: 150,
+      // minWidth: 150,
+      flex: 1,
       headerClassName: "super-app-theme--header",
     },
   ];
@@ -104,10 +105,16 @@ export default function WorkerPurchase() {
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
-        <div className="font-Poppins font-bold text-[18px]">
-          All Available Products.
+        <div className="font-Poppins font-bold text-[18px]"
+          style={{
+            color: "#212121",
+            fontSize: "36px",
+            fontFamily: "Montserrat"
+          }}
+        >
+          Products
         </div>
-        <br />
+        <br/>
         <div className="flex">
           <FormControl
             variant="outlined"

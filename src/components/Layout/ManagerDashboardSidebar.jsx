@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { FiPackage, FiShoppingBag } from "react-icons/fi";
 import { LuShoppingCart } from "react-icons/lu";
 import { AiOutlineSetting, AiOutlineUser } from "react-icons/ai";
@@ -10,15 +10,29 @@ import { logoutPegawai } from "../../redux/reducers/pegawaiSlice";
 
 const ManagerDashboardSidebar = ({ active }) => {
   const dispatch = useDispatch();
+  const [isManajemenOpen, setIsManajemenOpen] = useState(false);
 
   const handleLogout = async (e) => {
     e.preventDefault();
     dispatch(logoutPegawai(null));
   };
 
+  const toggleManajemen = () => {
+    setIsManajemenOpen(!isManajemenOpen);
+  };
+
   return (
-    <div className="h-screen bg-white shadow-sm sticky top-0 left-0 z-10">
-      <div className="p-6">
+    <div className="h-screen bg-white shadow-sm sticky top-0 left-0 z-10"
+      style={{
+        borderRight: "2px solid #D6C6E1"
+      }}
+    >
+      <div className="p-6"
+        style={{
+          marginTop: "24px",
+          marginBottom: "24px"
+        }}
+      >
         <Link to="/">
           <img
             src="https://drive.google.com/uc?export=view&id=1lIopMW2r-7VIwEm8UZBM3zJw5iHhQiZT"
@@ -29,6 +43,7 @@ const ManagerDashboardSidebar = ({ active }) => {
           />
         </Link>
       </div>
+
       {/* single item */}
       <div
         className={`w-full flex items-center p-4 ${
@@ -44,6 +59,12 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 1 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
             Sale Transactions
           </h5>
@@ -64,6 +85,12 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 2 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
             Purchase Transactions
           </h5>
@@ -84,57 +111,115 @@ const ManagerDashboardSidebar = ({ active }) => {
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 3 ? "text-[#61398F]" : "text-[#687083]"
             }`}
+            style={{
+              fontFamily: "Montserrat",
+              fontSize: "16px",
+              fontWeight: "600",
+              marginLeft: "8px"
+            }}
           >
-            All Product
+            Product
           </h5>
         </Link>
       </div>
 
+      {/* Manajemen dropdown */}
       <div
-        className={`w-full flex items-center p-4 ${
-          active === 4 ? "bg-[#D6C6E1]" : "bg-white"
+        className={`w-full flex items-center p-4 cursor-pointer ${
+          (active >= 4 && active <= 6) || isManajemenOpen ? "bg-[#E9E4ED]" : "bg-white"
         }`}
+        onClick={toggleManajemen}
       >
-        <Link to="/manager-all-employee" className="w-full flex items-center">
-          <AiOutlineUser
-            size={30}
-            color={`${active === 4 ? "#61398F" : "#687083"}`}
-          />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 4 ? "text-[#61398F]" : "text-[#687083]"
-            }`}
-          >
-            All Employee
-          </h5>
-        </Link>
-      </div>
-
-      <div className={`w-full flex items-center p-4 ${
-          active === 5 ? "bg-[#D6C6E1]" : "bg-white"
-        }`}
-      >
-        <Link to="/manager-all-member" className="w-full flex items-center">
-          <MdOutlineVerified
-            size={30}
-            color={`${active === 5 ? "#61398F" : "#687083"}`}
-          />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 5 ? "text-[#61398F]" : "text-[#687083]"
-            }`}
-          >
-            All Member
-          </h5>
-        </Link>
-      </div>
-
-      <button className="w-full flex items-center p-4" onClick={handleLogout}>
-        <BiLogOut size={30} color={active === 6 ? "crimson" : "#555"} />
+        <AiOutlineSetting
+          size={30}
+          color={`${(active >= 4 && active <= 6) || isManajemenOpen ? "#61398F" : "#687083"}`}
+        />
         <h5
           className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-            active === 6 ? "text-[crimson]" : "text-[#555]"
+            (active >= 4 && active <= 6) || isManajemenOpen ? "text-[#61398F]" : "text-[#687083]"
           }`}
+          style={{
+            fontFamily: "Montserrat",
+            fontSize: "16px",
+            fontWeight: "600",
+            marginLeft: "8px"
+          }}
+        >
+          Manajemen
+        </h5>
+      </div>
+
+      {/* Manajemen dropdown content */}
+      {(isManajemenOpen || active === 4 || active === 5) && (
+        <div>
+          <div
+            className={`w-full flex items-center p-4 ${
+              active === 4 ? "bg-[#D6C6E1]" : "bg-white"
+            }`}
+          >
+            <Link to="/manager-all-employee" className="w-full flex items-center">
+              <AiOutlineUser
+                size={30}
+                color={`${active === 4 ? "#61398F" : "#687083"}`}
+                style={{ marginLeft: '32px' }}
+              />
+              <h5
+                className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+                  active === 4 ? "text-[#61398F]" : "text-[#687083]"
+                }`}
+                style={{
+                  fontFamily: "Montserrat",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  marginLeft: "8px"
+                }}
+              >
+                Employee
+              </h5>
+            </Link>
+          </div>
+
+          <div
+            className={`w-full flex items-center p-4 ${
+              active === 5 ? "bg-[#D6C6E1]" : "bg-white"
+            }`}
+          >
+            <Link to="/manager-all-member" className="w-full flex items-center">
+              <MdOutlineVerified
+                size={30}
+                color={`${active === 5 ? "#61398F" : "#687083"}`}
+                style={{ marginLeft: '32px' }}
+              />
+              <h5
+                className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+                  active === 5 ? "text-[#61398F]" : "text-[#687083]"
+                }`}
+                style={{
+                  fontFamily: "Montserrat",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  marginLeft: "8px"
+                }}
+              >
+                Member
+              </h5>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      <button className="w-full flex items-center p-4" onClick={handleLogout}>
+        <BiLogOut size={30} color={active === 6 ? "crimson" : "#687083"} />
+        <h5
+          className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+            active === 6 ? "text-[#61398F]" : "text-[#687083]"
+          }`}
+          style={{
+            fontFamily: "Montserrat",
+            fontSize: "16px",
+            fontWeight: "600",
+            marginLeft: "8px"
+          }}
         >
           Logout
         </h5>
