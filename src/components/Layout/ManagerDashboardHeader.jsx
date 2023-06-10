@@ -12,7 +12,7 @@ const DashboardHeader = ({ active }) => {
       <div>
         <Link to="/">
           <img
-            src="https://drive.google.com/uc?export=view&id=1lIopMW2r-7VIwEm8UZBM3zJw5iHhQiZT"
+            src="https://github.com/akmalariq9/MinimarketApp_FE/blob/main/src/img/logo.png?raw=true"
             alt=""
             width={185}
             height={55}
