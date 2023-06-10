@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { Box, Button, MenuItem, TextField, Typography } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WorkerAddSalesProduct = () => {
   const auth = useSelector((state) => state.pegawai);
@@ -51,6 +53,15 @@ const WorkerAddSalesProduct = () => {
       }
 
       const timestamp = new Date().toLocaleTimeString();
+
+      const selectedBarangStock = selectedBarang ? selectedBarang.stok : 0;
+      const requestedBarangStock = parseInt(transaksi.jumlah_barang);
+
+      if (requestedBarangStock > selectedBarangStock) {
+        toast.error('Insufficient Stock');
+        return;
+      }
+
       const response = await axios.post('http://localhost:8000/barang-transaksi-penjualan', {
         member_id: transaksi.member_id,
         barang_id: transaksi.barang_id,
@@ -62,7 +73,12 @@ const WorkerAddSalesProduct = () => {
       console.log(response);
       navigate(`/barang-transaksi-penjualan/${url}`);
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.data && error.response.data.message) {
+        const errorMessage = error.response.data.message;
+        toast.error(errorMessage);
+      } else {
+        console.log(error);
+      }
     }
   };
 
@@ -100,8 +116,7 @@ const WorkerAddSalesProduct = () => {
             fullWidth
             margin="normal"
             options={barang}
-            // required
-            getOptionLabel={(option) => option.nama || ""}
+            getOptionLabel={(option) => option.nama || ''}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -113,7 +128,6 @@ const WorkerAddSalesProduct = () => {
             )}
             value={selectedBarang} // Menggunakan state selectedBarang untuk menampilkan nama produk
             onChange={handleBarangChange}
-            // required
           />
           <TextField
             fullWidth
@@ -129,16 +143,24 @@ const WorkerAddSalesProduct = () => {
               })
             }
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{mt: 3,
-              backgroundColor: "#8B5FBF",
-              "&:hover": {
-                backgroundColor: "#61398F",
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{
+              mt: 3,
+              backgroundColor: '#8B5FBF',
+              '&:hover': {
+                backgroundColor: '#61398F',
               },
-              textTransform: "none",
-            }}>
+              textTransform: 'none',
+            }}
+          >
             Create
           </Button>
         </form>
+        <ToastContainer position="top-center"/>
       </Box>
     </Box>
   );

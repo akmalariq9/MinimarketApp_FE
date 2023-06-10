@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Select, MenuItem, FormControl, InputLabel, TextField } from "@mui/material";
 import axios from "axios";
 
-export default function WorkerPurchase() {
+export default function ManagerAllProduct() {
   const [data, setData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [filteredData, setFilteredData] = useState([]);
@@ -101,22 +101,18 @@ export default function WorkerPurchase() {
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
-        <div
-          className="font-Poppins font-bold text-[18px]"
+      <div className="font-Poppins font-bold text-[18px]"
           style={{
             color: "#212121",
             fontSize: "36px",
-            fontFamily: "Montserrat",
+            fontFamily: "Montserrat"
           }}
         >
           Products
         </div>
         <br />
-        <div className="flex">
-          <FormControl
-            variant="outlined"
-            sx={{ minWidth: 200, marginBottom: "16px" }}
-          >
+        <div className="flex space-x-4 mb-4">
+          <FormControl variant="outlined" sx={{ minWidth: 200 }}>
             <InputLabel id="category-label">Category</InputLabel>
             <Select
               labelId="category-label"
@@ -124,6 +120,7 @@ export default function WorkerPurchase() {
               value={selectedCategory}
               onChange={handleCategoryChange}
               label="Category"
+              sx={{ height: "41px" }}
             >
               <MenuItem value="All Categories">All Categories</MenuItem>
               {categories.map((category) => (
@@ -139,7 +136,8 @@ export default function WorkerPurchase() {
             size="small"
             value={searchValue}
             onChange={handleSearchChange}
-            sx={{ marginLeft: "16px" }}
+            inputProps={{ style: { height: "24px" } }}
+            sx={{ width: 200 }}
           />
         </div>
         <DataGrid
@@ -160,14 +158,14 @@ export default function WorkerPurchase() {
               fontStyle: "bold",
             },
             "& .low-stock-cell": {
-              backgroundColor: "#A64452",
+              backgroundColor: "#f08080",
               color: "white",
             },
             "& .low-stock-row": {
-              backgroundColor: "#A64452",
+              backgroundColor: "#f08080",
               color: "white",
               "&:hover": {
-                backgroundColor: "#A64455", // Menjaga warna latar belakang tetap merah saat dihover
+                backgroundColor: "#f08080", // Menjaga warna latar belakang tetap merah saat dihover
               },
             },
           }}
