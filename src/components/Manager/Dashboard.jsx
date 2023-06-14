@@ -1,5 +1,5 @@
 import React from "react";
-import pattern from "../../../src/img/dashboardai-01.png";
+import pattern from "../../../src/img/pattern.png";
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
