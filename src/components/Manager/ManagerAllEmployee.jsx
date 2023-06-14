@@ -94,7 +94,7 @@ const ManagerAllEmployee = () => {
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
         <div
-          className="font-Poppins font-bold text-[18px]"
+          className="font-bold"
           style={{
             color: "#212121",
             fontSize: "36px",

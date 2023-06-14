@@ -101,11 +101,11 @@ export default function ManagerAllProduct() {
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10">
-      <div className="font-Poppins font-bold text-[18px]"
+      <div className="font-bold"
           style={{
             color: "#212121",
             fontSize: "36px",
-            fontFamily: "Montserrat"
+            fontFamily: "Montserrat",
           }}
         >
           Products

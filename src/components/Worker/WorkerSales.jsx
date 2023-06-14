@@ -128,7 +128,12 @@ const WorkerSales = () => {
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white">
         <div className="flex justify-between items-center font-Poppins font-bold text-[18px]">
-          <div>Sales Transactions.</div>
+          <div className="font-bold" style={{
+            fontFamily: "Montserrat",
+            fontSize: "36px",
+          }}>
+            Sales Transactions.
+            </div>
           <Button
             variant="contained"
             size="small"

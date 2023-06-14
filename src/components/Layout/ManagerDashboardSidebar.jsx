@@ -44,7 +44,7 @@ const ManagerDashboardSidebar = ({ active }) => {
             alt=""
             width={185}
             height={55}
-            style={{ marginLeft: "auto", marginRight: "auto" }}
+            style={{ marginLeft: "auto", marginRight: "auto"}}
           />
         </Link>
       </div>
@@ -150,7 +150,7 @@ const ManagerDashboardSidebar = ({ active }) => {
       marginLeft: "8px",
     }}
   >
-    Manajemen
+    Management
   </h5>
   <IoIosArrowDropdown
     size={24}
@@ -257,10 +257,10 @@ const ManagerDashboardSidebar = ({ active }) => {
       )}
 
       <button className="w-full flex items-center p-4" onClick={handleLogout}>
-        <BiLogOut size={30} color={active === 6 ? "crimson" : "#687083"} />
+        <BiLogOut size={30} color={active === 7 ? "crimson" : "#687083"} />
         <h5
           className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-            active === 6 ? "text-[#61398F]" : "text-[#687083]"
+            active === 7 ? "text-[#61398F]" : "text-[#687083]"
           }`}
           style={{
             fontFamily: "Montserrat",

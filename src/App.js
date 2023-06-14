@@ -21,6 +21,8 @@ import WorkerAddSalesProduct from "./components/Worker/WorkerAddSalesProduct.jsx
 import WorkerAddPurchaseProduct from "./components/Worker/WorkerAddPurchaseProduct.jsx";
 import ManagerAllSupplierPage from "./pages/Manager/ManagerAllSupplierPage.jsx";
 import WorkerAllProductPage from "./pages/Worker/WorkerAllProductPage.jsx";
+import WorkerAllMemberPage from "./pages/Worker/WorkerAllMemberPage.jsx";
+import WorkerAllSupplierPage from "./pages/Worker/WorkerAllSupplierPage.jsx";
 
 const App = () => {
   return (
@@ -66,6 +68,24 @@ const App = () => {
           element={
             <WorkerProtectedRoute>
               <WorkerAllProductPage />
+            </WorkerProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/all-member"
+          element={
+            <WorkerProtectedRoute>
+              <WorkerAllMemberPage />
+            </WorkerProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/all-supplier"
+          element={
+            <WorkerProtectedRoute>
+              <WorkerAllSupplierPage />
             </WorkerProtectedRoute>
           }
         />

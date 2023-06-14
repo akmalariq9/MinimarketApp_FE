@@ -8,9 +8,9 @@ const ManagerAllSalesPage = () => {
     <div>
     {/* <ManagerDashboardHeader active={1}/> */}
     <div className="flex justify-between w-full">
-        <div className="w-[80px] 800px:w-[330px]">
+        {/* <div className="w-[80px] 800px:w-[330px]"> */}
           <ManagerDashboardSidebar active={1} />
-        </div>
+        {/* </div> */}
         <div className="w-full justify-center flex">
           <ManagerAllSales />
         </div>

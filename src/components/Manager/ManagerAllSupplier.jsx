@@ -73,7 +73,7 @@ const ManagerAllSupplier = () => {
   return (
     <>
       <div className="w-full mx-8 pt-1 mt-10 bg-white mb-10"> {/* Tambahkan margin bawah di sini */}
-        <div className="font-Poppins font-bold text-[18px]"
+        <div className="font-bold"
           style={{
             color: "#212121",
             fontSize: "36px",

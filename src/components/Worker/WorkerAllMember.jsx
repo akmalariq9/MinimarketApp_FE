@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { TextField } from "@mui/material";
 
-const ManagerAllMember = () => {
+const WorkerAllMember = () => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -18,7 +18,9 @@ const ManagerAllMember = () => {
   useEffect(() => {
     const filteredRows = data.filter((item) => {
       // Ganti properti berikut dengan properti yang sesuai di objek 'item' dalam 'data'
-      return item.no_telepon && item.no_telepon.toString().includes(searchValue);
+      return (
+        item.no_telepon && item.no_telepon.toString().includes(searchValue)
+      );
     });
     setFilteredData(filteredRows);
   }, [data, searchValue]);
@@ -76,7 +78,6 @@ const ManagerAllMember = () => {
             color: "#212121",
             fontSize: "36px",
             fontFamily: "Montserrat",
-            fontWeight: "600px",
           }}
         >
           Member
@@ -113,4 +114,4 @@ const ManagerAllMember = () => {
   );
 };
 
-export default ManagerAllMember;
+export default WorkerAllMember;
