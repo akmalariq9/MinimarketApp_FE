@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { logoutPegawai } from "../../redux/reducers/pegawaiSlice";
 import { TbTruckLoading } from "react-icons/tb";
 import { IoIosArrowDropdown } from "react-icons/io";
-import logo from "../../../src/img/logo.png";
 
 const ManagerDashboardSidebar = ({ active }) => {
   const dispatch = useDispatch();
@@ -40,7 +39,7 @@ const ManagerDashboardSidebar = ({ active }) => {
       >
         <Link to="/">
           <img
-            src={logo}
+            src="/img/logo.png"
             alt=""
             width={185}
             height={55}

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import pattern from "../../../src/img/pattern.png";
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
@@ -42,7 +41,7 @@ const Dashboard = () => {
             display: "flex",
             alignItems: "center",
             // justifyContent: "center",
-            backgroundImage: `url(${pattern})`,
+            backgroundImage: `url(/img/pattern.png)`,
             backgroundSize: "cover",
           }}
         >
@@ -89,7 +88,7 @@ const Dashboard = () => {
             display: "flex",
             alignItems: "center",
             // justifyContent: "center",
-            backgroundImage: `url(${pattern})`,
+            backgroundImage: `url(/img/pattern.png)`,
             backgroundSize: "cover",
           }}
         >
