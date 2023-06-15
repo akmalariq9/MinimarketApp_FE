@@ -18,7 +18,7 @@ export default function WorkerAllProduct() {
   }, []);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_API_URL + `/jenis_barang`).then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + `/jenis-barang`).then((res) => {
       setCategories(res.data.data);
     });
   }, []);
