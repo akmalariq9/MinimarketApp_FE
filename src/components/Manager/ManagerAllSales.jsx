@@ -15,7 +15,7 @@ const ManagerAllSales = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/transaksi-penjualan`
+          process.env.REACT_APP_API_URL + `/transaksi-penjualan`
         );
         setDataTransaksi(response.data.data);
 
@@ -30,14 +30,14 @@ const ManagerAllSales = () => {
 
         const promises = memberIds.map(async (memberId) => {
           const response2 = await axios.get(
-            `http://localhost:8000/member/${memberId}`
+            process.env.REACT_APP_API_URL + `/member/${memberId}`
           );
           return response2.data.data;
         });
 
         const promises2 = pegawaiIds.map(async (pegawaiId) => {
           const response3 = await axios.get(
-            `http://localhost:8000/pegawai/${pegawaiId}`
+            process.env.REACT_APP_API_URL + `/pegawai/${pegawaiId}`
           );
           return response3.data.data;
         });

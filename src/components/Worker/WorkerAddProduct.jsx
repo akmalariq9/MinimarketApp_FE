@@ -23,9 +23,9 @@ const WorkerAddProduct = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/barang');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/barang');
         setBarang(response.data.data);
-        const response2 = await axios.get(`http://localhost:8000/barang-transaksi-penjualan/transaksi/${url}`);
+        const response2 = await axios.get(process.env.REACT_APP_API_URL + `/barang-transaksi-penjualan/transaksi/${url}`);
         setExist(response2.data.data);
       } catch (error) {
         console.log(error);
@@ -41,7 +41,7 @@ const WorkerAddProduct = () => {
       if (existingTransaction) {
         // Jika barang sudah ada dalam transaksi sebelumnya, tambahkan jumlah barang baru dengan jumlah yang sudah ada
         const updatedJumlahBarang = parseInt(existingTransaction.jumlah_barang) + parseInt(transaksi.jumlah_barang);
-        const response = await axios.put(`http://localhost:8000/barang-transaksi-penjualan/${existingTransaction.id}`, {
+        const response = await axios.put(process.env.REACT_APP_API_URL + `/barang-transaksi-penjualan/${existingTransaction.id}`, {
           jumlah_barang: updatedJumlahBarang,
         });
         console.log(response);
@@ -50,7 +50,7 @@ const WorkerAddProduct = () => {
       }
 
       const timestamp = new Date().toLocaleTimeString();
-      const response = await axios.post('http://localhost:8000/barang-transaksi-penjualan', {
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/barang-transaksi-penjualan', {
         member_id: transaksi.member_id,
         barang_id: transaksi.barang_id,
         jumlah_barang: transaksi.jumlah_barang,

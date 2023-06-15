@@ -27,7 +27,7 @@ const ManagerDetailSalesProduct = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/barang-transaksi-penjualan/transaksi/${url}`
+          process.env.REACT_APP_API_URL + `/barang-transaksi-penjualan/transaksi/${url}`
         );
         setDataBarangs(response.data.data);
 
@@ -38,7 +38,7 @@ const ManagerDetailSalesProduct = () => {
 
         const promises = barangIds.map(async (barangId) => {
           const response2 = await axios.get(
-            `http://localhost:8000/barang/${barangId}`
+            process.env.REACT_APP_API_URL + `/barang/${barangId}`
           );
           return response2.data.data;
         });
@@ -54,7 +54,7 @@ const ManagerDetailSalesProduct = () => {
   const handleDeleteItem = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:8000/barang-transaksi-penjualan/${id}`
+        process.env.REACT_APP_API_URL + `/barang-transaksi-penjualan/${id}`
       );
       window.location.reload();
       // fetchData(); // Refresh data after successful deletion

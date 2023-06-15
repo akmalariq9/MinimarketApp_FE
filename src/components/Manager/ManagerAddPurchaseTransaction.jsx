@@ -15,7 +15,7 @@ const ManagerAddPurchaseTransaction = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8000/transaksi-pembelian',
+        process.env.REACT_APP_API_URL + '/transaksi-pembelian',
         {
           supplier_id: transaksi.supplier_id,
           pegawai_id: transaksi.pegawai_id,

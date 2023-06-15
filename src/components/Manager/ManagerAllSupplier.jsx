@@ -7,7 +7,7 @@ const ManagerAllSupplier = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/supplier`).then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + `/supplier`).then((res) => {
       setData(res.data.data);
     });
   }, []);

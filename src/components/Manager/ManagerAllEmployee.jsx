@@ -9,7 +9,7 @@ const ManagerAllEmployee = () => {
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/pegawai`).then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + `/pegawai`).then((res) => {
       setData(res.data.data);
       setFilteredData(res.data.data);
     });

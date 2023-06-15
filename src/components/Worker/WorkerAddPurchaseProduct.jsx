@@ -25,9 +25,9 @@ const WorkerAddPurchaseProduct = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/barang');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/barang');
         setBarang(response.data.data);
-        const response2 = await axios.get(`http://localhost:8000/barang-transaksi-pembelian/transaksi/${url}`);
+        const response2 = await axios.get(process.env.REACT_APP_API_URL + `/barang-transaksi-pembelian/transaksi/${url}`);
         setExist(response2.data.data);
       } catch (error) {
         console.log(error);
@@ -42,7 +42,7 @@ const WorkerAddPurchaseProduct = () => {
       const existingTransaction = exist.find((item) => item.barang_id === transaksi.barang_id);
       if (existingTransaction) {
         const updatedJumlahBarang = parseInt(existingTransaction.jumlah_barang) + parseInt(transaksi.jumlah_barang);
-        const response = await axios.put(`http://localhost:8000/barang-transaksi-pembelian/${existingTransaction.id}`, {
+        const response = await axios.put(process.env.REACT_APP_API_URL + `/barang-transaksi-pembelian/${existingTransaction.id}`, {
           jumlah_barang: updatedJumlahBarang,
         });
         console.log(response);
@@ -51,7 +51,7 @@ const WorkerAddPurchaseProduct = () => {
       }
 
       const timestamp = new Date().toLocaleTimeString();
-      const response = await axios.post('http://localhost:8000/barang-transaksi-pembelian', {
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/barang-transaksi-pembelian', {
         member_id: transaksi.member_id,
         barang_id: transaksi.barang_id,
         jumlah_barang: transaksi.jumlah_barang,

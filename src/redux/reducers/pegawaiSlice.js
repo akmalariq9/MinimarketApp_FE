@@ -21,7 +21,7 @@ export const loginPegawai = createAsyncThunk(
     try {
       //console.log(data.email, data.password)
       const response = await axios.post(
-        `http://localhost:8000/pegawai/login`,
+        process.env.REACT_APP_API_URL + `/pegawai/login`,
         {
           email: data.email,
           password: data.password,

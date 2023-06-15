@@ -15,7 +15,7 @@ const ManagerAllPurchase = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/transaksi-pembelian`
+          process.env.REACT_APP_API_URL + `/transaksi-pembelian`
         );
         setDataTransaksi(response.data.data);
 
@@ -30,14 +30,14 @@ const ManagerAllPurchase = () => {
 
         const promises = supplierIds.map(async (supplierId) => {
           const response2 = await axios.get(
-            `http://localhost:8000/supplier/${supplierId}`
+            process.env.REACT_APP_API_URL + `/supplier/${supplierId}`
           );
           return response2.data.data;
         });
 
         const promises2 = pegawaiIds.map(async (pegawaiId) => {
           const response3 = await axios.get(
-            `http://localhost:8000/pegawai/${pegawaiId}`
+            process.env.REACT_APP_API_URL + `/pegawai/${pegawaiId}`
           );
           return response3.data.data;
         });

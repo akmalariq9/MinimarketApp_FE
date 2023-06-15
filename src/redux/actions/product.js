@@ -7,7 +7,7 @@ export const getAllProductsShop = (id) => async (dispatch) => {
     });
 
     const { data } = await axios.get(
-      `http://localhost:3000/product/get-all-barang/${id}`
+      process.env.REACT_APP_API_URL + `/product/get-all-barang/${id}`
     );
     dispatch({
       type: "getAllProductsShopSuccess",

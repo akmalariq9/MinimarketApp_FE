@@ -17,7 +17,7 @@ export default function WorkerPurchase() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/transaksi-pembelian/pegawai/${auth.id}`
+          process.env.REACT_APP_API_URL + `/transaksi-pembelian/pegawai/${auth.id}`
         );
         setDataTransaksi(response.data.data);
 
@@ -28,7 +28,7 @@ export default function WorkerPurchase() {
 
         const promises = supplierIds.map(async (supplierId) => {
           const response2 = await axios.get(
-            `http://localhost:8000/supplier/${supplierId}`
+            process.env.REACT_APP_API_URL + `/supplier/${supplierId}`
           );
           return response2.data.data;
         });

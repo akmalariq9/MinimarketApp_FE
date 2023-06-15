@@ -21,7 +21,7 @@ const WorkerAddSalesTransaction = () => {
     try {
       // const timestamp = new Date().toLocaleTimeString(); // Mendapatkan waktu saat tombol submit diklik
       const response = await axios.post(
-        'http://localhost:8000/transaksi-penjualan',
+        process.env.REACT_APP_API_URL + '/transaksi-penjualan',
         {
           member_id: transaksi.member_id,
           pegawai_id: transaksi.pegawai_id,
