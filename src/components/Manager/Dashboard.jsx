@@ -10,7 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/pegawai/" + auth.id);
+        const response = await fetch(process.env.REACT_APP_API_URL + `/pegawai` + auth.id);
         const jsonData = await response.json();
         setData(jsonData)
       } catch (error) {

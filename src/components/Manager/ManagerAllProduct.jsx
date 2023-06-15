@@ -11,14 +11,14 @@ export default function ManagerAllProduct() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/barang").then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + `/barang`).then((res) => {
       setData(res.data.data);
       setFilteredData(res.data.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/jenis-barang").then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + `/jenis_barang`).then((res) => {
       setCategories(res.data.data);
     });
   }, []);
