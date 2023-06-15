@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WorkerAddSalesTransaction = () => {
   const auth = useSelector((state) => state.pegawai);
@@ -30,7 +32,10 @@ const WorkerAddSalesTransaction = () => {
       // Redirect ke halaman /dashboard-sales-history setelah berhasil submit
       navigate('/sales-history');
     } catch (error) {
-      console.log(error);
+      if(error.response && error.response.data && error.response.data.status === 500){
+        const errormsg = "Member ID Can't be Found";
+        toast.error(errormsg)
+      }
     }
   };
 
@@ -100,6 +105,7 @@ const WorkerAddSalesTransaction = () => {
             Submit
           </Button>
         </form>
+        <ToastContainer position="top-center" />
       </Box>
     </Box>
   );

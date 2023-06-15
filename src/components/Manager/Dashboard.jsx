@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import pattern from "../../../src/img/pattern.png";
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   const auth = useSelector((state) => state.pegawai);
-  const nama = auth.nama;
-  const email = auth.email;
+  const [data, setData] = useState({})
+
+  console.log(data);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/pegawai/" + auth.id);
+        const jsonData = await response.json();
+        setData(jsonData)
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [auth.id]);
+
+  const email = data.data && data.data.email ? data.data.email : "";
 
   return (
     <div className="w-full flex flex-col mt-8">
@@ -60,7 +77,7 @@ const Dashboard = () => {
             <br/>
             Nama: {auth.nama}
             <br/>
-            Email: {auth.role}
+            Email: {email}
           </div>
         </div>
       </div>

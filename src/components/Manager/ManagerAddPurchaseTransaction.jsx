@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const ManagerAddPurchaseTransaction = () => {
   const [transaksi, setTransaksi] = useState({
@@ -21,7 +23,7 @@ const ManagerAddPurchaseTransaction = () => {
       );
       console.log(response);
     } catch (error) {
-      console.log(error);
+      // clg(error.response.data.status)
     }
   };
 

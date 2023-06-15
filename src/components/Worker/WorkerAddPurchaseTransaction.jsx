@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WorkerAddPurchaseTransaction = () => {
   const auth = useSelector((state) => state.pegawai);
@@ -31,7 +33,11 @@ const WorkerAddPurchaseTransaction = () => {
       // Redirect ke halaman /dashboard-sales-history setelah berhasil submit
       navigate('/purchase-history');
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      if(error.response && error.response.data && error.response.data.status === 500){
+        const errormsg = "Supplier ID Can't be Found";
+        toast.error(errormsg)
+      }
     }
   };
 
@@ -101,6 +107,7 @@ const WorkerAddPurchaseTransaction = () => {
             Submit
           </Button>
         </form>
+        <ToastContainer position="top-center" />
       </Box>
     </Box>
   );
